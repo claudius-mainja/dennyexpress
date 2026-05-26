@@ -43,8 +43,8 @@
     $inStock = ($productArr['stock_status'] ?? 'in_stock') === 'in_stock';
 @endphp
 
-<div {{ $attributes->merge(['class' => 'group bg-surface rounded-2xl border border-white/5 overflow-hidden hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300']) }}>
-    <div class="relative aspect-square bg-dark overflow-hidden">
+<div {{ $attributes->merge(['class' => 'group bg-white rounded-2xl border border-gray-200 overflow-hidden hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300']) }}>
+    <div class="relative aspect-square bg-gray-50 overflow-hidden">
         <a href="{{ route('products.show', $slug) }}" class="block w-full h-full">
             <img src="{{ $image }}"
                  alt="{{ $name }}"
@@ -57,7 +57,7 @@
                 $discount = round((($originalPrice - $price) / $originalPrice) * 100);
             @endphp
             @if ($discount > 0)
-                <span class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-xl">
+                <span class="absolute top-3 left-3 bg-accent text-gray-900 text-xs font-bold px-3 py-1.5 rounded-xl">
                     -{{ $discount }}% OFF
                 </span>
             @endif
@@ -65,14 +65,14 @@
 
         @if (!$inStock || ($stockQuantity !== null && $stockQuantity <= 0))
             <div class="absolute inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center">
-                <span class="bg-surface text-white text-sm font-semibold px-4 py-2 rounded-xl border border-white/10">
+                <span class="bg-gray-900 text-white text-sm font-semibold px-4 py-2 rounded-xl">
                     Out of Stock
                 </span>
             </div>
         @endif
 
         @if ($stockQuantity !== null && $stockQuantity > 0 && $stockQuantity <= 5)
-            <span class="absolute bottom-3 left-3 bg-orange-500/10 text-orange-400 text-xs font-semibold px-3 py-1.5 rounded-xl border border-orange-500/20">
+            <span class="absolute bottom-3 left-3 bg-accent/10 text-accent-dark text-xs font-semibold px-3 py-1.5 rounded-xl border border-accent/20">
                 Only {{ $stockQuantity }} left
             </span>
         @endif
@@ -83,7 +83,7 @@
             <p class="text-xs text-gray-500 uppercase tracking-wider mb-1.5">{{ $brand }}</p>
         @endif
 
-        <h3 class="text-sm text-white font-semibold leading-snug mb-2 line-clamp-2 min-h-[40px]">
+        <h3 class="text-sm text-gray-900 font-semibold leading-snug mb-2 line-clamp-2 min-h-[40px]">
             <a href="{{ route('products.show', $slug) }}" class="hover:text-primary transition-colors">
                 {{ $name }}
             </a>
@@ -92,7 +92,7 @@
         @if ($reviewsCount > 0 || $rating > 0)
             <div class="flex items-center gap-1.5 mb-3">
                 @for ($i = 1; $i <= 5; $i++)
-                    <svg class="w-4 h-4 {{ $i <= $rating ? 'text-primary' : 'text-gray-600' }}" fill="currentColor" viewBox="0 0 20 20">
+                    <svg class="w-4 h-4 {{ $i <= $rating ? 'text-accent' : 'text-gray-300' }}" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                 @endfor
@@ -103,11 +103,11 @@
         @endif
 
         <div class="flex items-baseline gap-2 mb-4">
-            <span class="text-xl font-bold text-white">
+            <span class="text-xl font-bold text-gray-900">
                 R{{ number_format((float)$price, 2) }}
             </span>
             @if ($onSale && $originalPrice && $originalPrice > $price)
-                <span class="text-sm text-gray-500 line-through">
+                <span class="text-sm text-gray-400 line-through">
                     R{{ number_format((float)$originalPrice, 2) }}
                 </span>
             @endif
@@ -127,7 +127,7 @@
                     </button>
                 </form>
             @else
-                <button disabled class="w-full inline-flex items-center justify-center gap-2 px-4 py-3 bg-gray-800 text-gray-500 text-sm font-semibold rounded-xl cursor-not-allowed border border-white/10">
+                <button disabled class="w-full inline-flex items-center justify-center gap-2 px-4 py-3 bg-gray-200 text-gray-500 text-sm font-semibold rounded-xl cursor-not-allowed">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                     </svg>

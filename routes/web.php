@@ -63,6 +63,8 @@ Route::get('/terms', function () { return view('pages.terms'); })->name('pages.t
 Route::get('/privacy', function () { return view('pages.privacy'); })->name('pages.privacy');
 Route::get('/shipping', function () { return view('pages.shipping'); })->name('pages.shipping');
 Route::get('/returns', function () { return view('pages.returns'); })->name('pages.returns');
+Route::get('/services', function () { return view('pages.services'); })->name('pages.services');
+Route::get('/track-order', function () { return view('pages.track-order'); })->name('pages.track-order');
 
 // Breeze Dashboard
 Route::get('/dashboard', function () {
