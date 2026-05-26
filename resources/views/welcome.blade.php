@@ -14,11 +14,11 @@
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative py-12 md:py-0">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="max-w-xl">
-                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full mb-6">
-                        <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
-                        <span class="text-sm font-medium text-white">Free POS Software Included</span>
-                    </div>
+                 <div class="max-w-xl">
+                     <div class="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full mb-6">
+                         <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
+                         <span class="text-sm font-medium text-white">DennyPOS Included</span>
+                     </div>
                     
                     <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6 tracking-tight uppercase">
                         Premium
@@ -28,7 +28,7 @@
                     
                     <p class="text-gray-300 text-lg leading-relaxed mb-8">
                         Complete POS systems with touch terminals, receipt printers, barcode scanners, cash drawers, and scales. 
-                        <span class="text-white font-semibold">Free lifetime POS software included</span> — no monthly fees, ever.
+                        <span class="text-white font-semibold">DennyPOS locally-installed software</span> — works offline, your data stays on-premises.
                     </p>
                     
                     <div class="flex flex-col sm:flex-row gap-4">
@@ -50,28 +50,28 @@
                     
                     <div class="grid grid-cols-3 gap-4 mt-8 pt-8 border-t border-white/10">
                         <div class="text-center">
-                            <p class="text-2xl font-extrabold text-primary">Free</p>
-                            <p class="text-sm text-gray-400">Lifetime Software</p>
+                            <p class="text-2xl font-black text-primary">DennyPOS</p>
+                            <p class="text-sm text-gray-400">Locally Installed</p>
                         </div>
                         <div class="text-center">
-                            <p class="text-2xl font-extrabold text-primary">18</p>
+                            <p class="text-2xl font-black text-primary">18</p>
                             <p class="text-sm text-gray-400">Month Warranty</p>
                         </div>
                         <div class="text-center">
-                            <p class="text-2xl font-extrabold text-primary">R5k+</p>
+                            <p class="text-2xl font-black text-primary">R5k+</p>
                             <p class="text-sm text-gray-400">Free Delivery</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="hidden lg:block">
-                    <div class="relative">
-                        <div class="absolute inset-0 bg-primary/20 rounded-2xl blur-2xl"></div>
-                        <img src="{{ asset('images/hero1.png') }}" 
-                             alt="POS Systems & IT Hardware" 
-                             class="relative w-[85%] mx-auto h-auto rounded-2xl shadow-xl border border-white/10">
-                    </div>
-                </div>
+                 <div class="hidden lg:block">
+                     <div class="relative h-full flex items-center justify-end">
+                         <div class="absolute inset-0 bg-primary/20 rounded-2xl blur-2xl"></div>
+                         <img src="{{ asset('images/hero1.png') }}" 
+                              alt="POS Systems & IT Hardware" 
+                              class="relative w-full h-auto max-h-[60vh] object-contain object-right rounded-2xl shadow-xl border border-white/10">
+                     </div>
+                 </div>
             </div>
         </div>
 
@@ -656,28 +656,42 @@
                 @endforeach
             </div>
         </div>
-    </section>
+     </section>
 
-    {{-- Trust Badges Row --}}
-    <section class="py-12 bg-gray-50 border-y border-gray-200">
+    {{-- Our Clients & Partners Section --}}
+    <section class="py-16 bg-gray-50 border-y border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 items-center">
+            <div class="text-center mb-12">
+                <span class="text-xs font-black text-primary uppercase tracking-widest">TRUSTED BY</span>
+                <h2 class="text-3xl md:text-4xl font-black text-gray-900 mt-3 uppercase">Our Clients & Partners</h2>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto font-medium">
+                    Over 5000+ businesses across South Africa trust Denny Express for their POS needs.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
                 @php
-                    $trustBadges = [
-                        ['num' => '7+', 'label' => 'Years In Business', 'icon' => '🏆'],
-                        ['num' => '5000+', 'label' => 'POS Systems Deployed', 'icon' => '💻'],
-                        ['num' => '18', 'label' => 'Month Warranty', 'icon' => '🛡️'],
-                        ['num' => '98%', 'label' => 'Client Satisfaction', 'icon' => '⭐'],
-                        ['num' => '24/7', 'label' => 'Emergency Support', 'icon' => '🔧'],
-                        ['num' => 'R5k+', 'label' => 'Free Delivery', 'icon' => '🚚']
+                    $clientLogos = [
+                        ['name' => 'Puma', 'url' => 'https://dennyexpress.co.za/wp-content/uploads/2026/02/puma.webp'],
+                        ['name' => 'Pure Water', 'url' => 'https://dennyexpress.co.za/wp-content/uploads/2026/02/PureWater5-04RcOQZDkdjdzoPm6uWyWA.png'],
+                        ['name' => 'Kwazionke', 'url' => 'https://dennyexpress.co.za/wp-content/uploads/2026/02/kwazionke.png'],
+                        ['name' => 'Bomma', 'url' => 'https://dennyexpress.co.za/wp-content/uploads/2026/02/bomma-logo-e1666314818771.png'],
+                        ['name' => 'Bling Girl', 'url' => 'https://dennyexpress.co.za/wp-content/uploads/2026/02/bling-girl-official_logo.jpg'],
+                        ['name' => 'Miss Moo Nail', 'url' => 'https://dennyexpress.co.za/wp-content/uploads/2026/02/miss-moo-nail-1.jpg'],
+                        ['name' => 'SCC', 'url' => 'https://dennyexpress.co.za/wp-content/uploads/2026/02/SCC-Logo-Label.jpg'],
+                        ['name' => 'PIT', 'url' => 'https://dennyexpress.co.za/wp-content/uploads/2026/02/PIT-Logo-Full-ColourSmall.png']
                     ];
                 @endphp
 
-                @foreach ($trustBadges as $badge)
-                <div class="text-center group">
-                    <div class="text-2xl mb-2 group-hover:scale-125 transition-transform">{{ $badge['icon'] }}</div>
-                    <p class="text-2xl font-black text-primary">{{ $badge['num'] }}</p>
-                    <p class="text-xs text-gray-600 font-medium uppercase tracking-wider">{{ $badge['label'] }}</p>
+                @foreach ($clientLogos as $logo)
+                <div class="flex items-center justify-center p-6 bg-white rounded-2xl border border-gray-200 hover:border-primary/30 hover:shadow-lg transition-all duration-300 group">
+                    <img src="{{ $logo['url'] }}" 
+                         alt="{{ $logo['name'] }}" 
+                         class="h-12 max-w-[120px] object-contain opacity-70 group-hover:opacity-100 transition-opacity grayscale group-hover:grayscale-0"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="hidden items-center justify-center w-full h-12">
+                        <span class="text-sm font-black text-gray-400 uppercase">{{ $logo['name'] }}</span>
+                    </div>
                 </div>
                 @endforeach
             </div>
