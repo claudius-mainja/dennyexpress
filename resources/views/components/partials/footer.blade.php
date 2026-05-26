@@ -81,11 +81,12 @@
     <div class="border-t border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-sm text-gray-500">&copy; {{ date('Y') }} Denny Express. All rights reserved.</p>
-            <div class="flex items-center gap-4">
-                <div class="px-2 py-1 bg-gray-800 rounded text-xs font-medium text-gray-400">Visa</div>
-                <div class="px-2 py-1 bg-gray-800 rounded text-xs font-medium text-gray-400">Mastercard</div>
-                <div class="px-2 py-1 bg-gray-800 rounded text-xs font-medium text-gray-400">PayFast</div>
-                <div class="px-2 py-1 bg-gray-800 rounded text-xs font-medium text-gray-400">Ozow</div>
+            <div class="flex items-center gap-3">
+                <img src="{{ asset('images/payments/visa.svg') }}" alt="Visa" class="h-8 object-contain">
+                <img src="{{ asset('images/payments/mastercard.svg') }}" alt="Mastercard" class="h-8 object-contain">
+                <img src="{{ asset('images/payments/payfast.svg') }}" alt="PayFast" class="h-8 object-contain">
+                <img src="{{ asset('images/payments/ozow.svg') }}" alt="Ozow" class="h-8 object-contain">
+                <img src="{{ asset('images/payments/eft.svg') }}" alt="EFT" class="h-8 object-contain">
             </div>
         </div>
     </div>

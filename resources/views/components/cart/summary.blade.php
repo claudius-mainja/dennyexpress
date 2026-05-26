@@ -58,9 +58,9 @@
     </div>
 
     <div class="flex items-center justify-center gap-3 pt-2">
-        <div class="px-2 py-1 bg-gray-100 rounded text-xs font-medium text-gray-600">Visa</div>
-        <div class="px-2 py-1 bg-gray-100 rounded text-xs font-medium text-gray-600">Mastercard</div>
-        <div class="px-2 py-1 bg-gray-100 rounded text-xs font-medium text-gray-600">PayFast</div>
-        <div class="px-2 py-1 bg-gray-100 rounded text-xs font-medium text-gray-600">Ozow</div>
+        <img src="{{ asset('images/payments/visa.svg') }}" alt="Visa" class="h-6 object-contain">
+        <img src="{{ asset('images/payments/mastercard.svg') }}" alt="Mastercard" class="h-6 object-contain">
+        <img src="{{ asset('images/payments/payfast.svg') }}" alt="PayFast" class="h-6 object-contain">
+        <img src="{{ asset('images/payments/ozow.svg') }}" alt="Ozow" class="h-6 object-contain">
     </div>
 </div>
