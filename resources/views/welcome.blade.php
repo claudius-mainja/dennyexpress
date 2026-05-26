@@ -15,12 +15,12 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative py-12 md:py-0">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                  <div class="max-w-xl">
-                     <div class="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full mb-6">
+                     <div class="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full mb-2 mt-6">
                          <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
-                         <span class="text-sm font-medium text-white">DennyPOS Included</span>
+                         <span class="text-sm font-medium text-white">Denny Express Group Brings:</span>
                      </div>
                     
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6 tracking-tight uppercase">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6 tracking-tight uppercase">
                         Premium
                         <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-accent"> POS Hardware</span>
                         for Your Business
@@ -48,7 +48,7 @@
                         </a>
                     </div>
                     
-                    <div class="grid grid-cols-3 gap-4 mt-8 pt-8 border-t border-white/10">
+                    <div class="grid grid-cols-3 gap-4 mb-40 pt-4 border-t border-white/10">
                         <div class="text-center">
                             <p class="text-2xl font-black text-primary">DennyPOS</p>
                             <p class="text-sm text-gray-400">Locally Installed</p>
@@ -73,13 +73,6 @@
                      </div>
                  </div>
             </div>
-        </div>
-
-        {{-- Scroll indicator --}}
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-            <svg class="w-6 h-6 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
         </div>
     </section>
 
@@ -347,7 +340,7 @@
     </section>
     @endif
 
-    {{-- Futuristic POS Software Section with Animated Graphs --}}
+    {{-- POS Software Section with Animated Graphs --}}
     <section class="py-20 relative overflow-hidden" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #0f172a 100%);">
         <div class="absolute inset-0">
             <div class="absolute inset-0 opacity-5">
@@ -364,11 +357,11 @@
                         <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
-                        <span class="text-sm font-bold text-primary">NEXT-GEN TECHNOLOGY</span>
+                        <span class="text-sm font-bold text-primary">DENNY POS System Software</span>
                     </div>
                     
                       <h2 class="text-3xl md:text-5xl font-black text-white leading-tight mb-6 tracking-tight uppercase">
-                          DennyPOS Software
+                          It's Tiem to Get
                           <span class="block text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-accent mt-2 uppercase">Full Control On-Premises</span>
                       </h2>
                      
