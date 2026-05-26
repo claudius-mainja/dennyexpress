@@ -360,8 +360,8 @@
                         <span class="text-sm font-bold text-primary">DENNY POS System Software</span>
                     </div>
                     
-                      <h2 class="text-3xl md:text-5xl font-black text-white leading-tight mb-6 tracking-tight uppercase">
-                          It's Tiem to Get
+                      <h2 class="text-3xl md:text-5xl font-black text-white mb-6 tracking-tight uppercase">
+                          It's Time to Get
                           <span class="block text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-accent mt-2 uppercase">Full Control On-Premises</span>
                       </h2>
                      
