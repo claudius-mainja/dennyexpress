@@ -121,7 +121,7 @@ document.addEventListener('alpine:init', () => {
                     duration: Math.random() * 10 + 10,
                     opacity: Math.random() * 0.4 + 0.1,
                     type: Math.random() > 0.5 ? 'square' : 'circle',
-                    color: ['#2563eb', '#10b981', '#f97316', '#8b5cf6'][Math.floor(Math.random() * 4)]
+                    color: ['#65a30d', '#84cc16', '#eab308', '#facc15'][Math.floor(Math.random() * 4)]
                 });
             }
         }
@@ -432,7 +432,7 @@ window.createFloatingParticles = function(containerId, options = {}) {
     if (!container) return;
 
     const count = options.count || 20;
-    const colors = options.colors || ['#2563eb', '#10b981', '#f97316'];
+    const colors = options.colors || ['#65a30d', '#84cc16', '#eab308'];
     const shapes = options.shapes || ['circle', 'square', 'diamond'];
 
     for (let i = 0; i < count; i++) {

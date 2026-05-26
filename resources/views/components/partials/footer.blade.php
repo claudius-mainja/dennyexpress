@@ -79,14 +79,24 @@
         </div>
     </div>
     <div class="border-t border-white/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p class="text-sm text-gray-500">&copy; {{ date('Y') }} Denny Express. All rights reserved.</p>
-            <div class="flex items-center gap-3">
-                <img src="{{ asset('images/payments/visa.svg') }}" alt="Visa" class="h-8 object-contain">
-                <img src="{{ asset('images/payments/mastercard.svg') }}" alt="Mastercard" class="h-8 object-contain">
-                <img src="{{ asset('images/payments/payfast.svg') }}" alt="PayFast" class="h-8 object-contain">
-                <img src="{{ asset('images/payments/ozow.svg') }}" alt="Ozow" class="h-8 object-contain">
-                <img src="{{ asset('images/payments/eft.svg') }}" alt="EFT" class="h-8 object-contain">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-4">
+                <p class="text-sm text-gray-500">&copy; {{ date('Y') }} Denny Express. All rights reserved.</p>
+                <div class="flex items-center gap-3">
+                    <img src="{{ asset('images/payments/visa.svg') }}" alt="Visa" class="h-8 object-contain">
+                    <img src="{{ asset('images/payments/mastercard.svg') }}" alt="Mastercard" class="h-8 object-contain">
+                    <img src="{{ asset('images/payments/payfast.svg') }}" alt="PayFast" class="h-8 object-contain">
+                    <img src="{{ asset('images/payments/ozow.svg') }}" alt="Ozow" class="h-8 object-contain">
+                    <img src="{{ asset('images/payments/eft.svg') }}" alt="EFT" class="h-8 object-contain">
+                </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-white/5 text-center">
+                <p class="text-xs text-gray-600">
+                    Designed & Developed by 
+                    <a href="https://www.blacklemur.co.za" target="_blank" class="text-primary hover:text-accent transition-colors font-medium">
+                        Blacklemur Innovations
+                    </a>
+                </p>
             </div>
         </div>
     </div>

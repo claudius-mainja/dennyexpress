@@ -2,6 +2,7 @@
 
 namespace App\Http\ViewComposers;
 
+use App\Models\Category;
 use App\Services\CartService;
 use App\Services\WishlistService;
 use Illuminate\View\View;
@@ -23,10 +24,18 @@ class CartComposer
         $cartTotal = $this->cartService->total();
         $wishlistCount = $this->wishlistService->count();
 
+        $navCategories = Category::where('is_active', true)
+            ->whereNull('parent_id')
+            ->with(['children' => fn($q) => $q->where('is_active', true)->orderBy('sort_order')])
+            ->orderBy('sort_order')
+            ->take(12)
+            ->get();
+
         $view->with([
             'cartCount' => $cartCount,
             'cartTotal' => $cartTotal,
             'wishlistCount' => $wishlistCount,
+            'navCategories' => $navCategories,
         ]);
     }
 }

@@ -8,6 +8,40 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+    public function search(Request $request)
+    {
+        $query = $request->input('q', '');
+
+        if (strlen($query) < 2) {
+            return response()->json(['products' => []]);
+        }
+
+        $products = Product::with('primaryImage', 'categories')
+            ->where('is_active', true)
+            ->where(function ($q) use ($query) {
+                $q->where('name', 'like', "%{$query}%")
+                  ->orWhere('description', 'like', "%{$query}%")
+                  ->orWhere('short_description', 'like', "%{$query}%")
+                  ->orWhere('sku', 'like', "%{$query}%");
+            })
+            ->latest()
+            ->take(10)
+            ->get();
+
+        $formatted = $products->map(function ($product) {
+            return [
+                'id' => $product->id,
+                'name' => $product->name,
+                'slug' => $product->slug,
+                'price' => (float) ($product->sale_price ?? $product->price),
+                'formatted_price' => 'R' . number_format($product->sale_price ?? $product->price, 2),
+                'image' => $product->primaryImage?->url,
+                'url' => route('products.show', $product->slug),
+            ];
+        });
+
+        return response()->json(['products' => $formatted]);
+    }
     public function index(Request $request)
     {
         $query = Product::with('primaryImage', 'categories')

@@ -5,15 +5,80 @@
                 Home
             </a>
         </li>
-        <li>
-            <a href="{{ route('shop.index') }}" class="text-sm text-gray-600 hover:text-primary font-medium px-4 py-2 bg-primary/5 rounded-lg transition-colors {{ request()->routeIs('shop.*') ? 'text-primary bg-primary/10' : '' }}">
-                <span class="inline-flex items-center gap-1.5">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-                    </svg>
-                    All Products
-                </span>
-            </a>
+        <li @mouseenter="dropdown = 'allproducts'" @mouseleave="dropdown = null" class="relative">
+            <button class="text-sm text-gray-600 hover:text-primary font-medium px-4 py-2 bg-primary/5 rounded-lg inline-flex items-center gap-1.5 transition-colors {{ request()->routeIs('shop.*') ? 'text-primary bg-primary/10' : '' }}">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                </svg>
+                All Products
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+            <div x-show="dropdown === 'allproducts'" 
+                 x-transition:enter="transition ease-out duration-200" 
+                 x-transition:enter-start="opacity-0 translate-y-1" 
+                 x-transition:enter-end="opacity-100 translate-y-0" 
+                 x-transition:leave="transition ease-in duration-150" 
+                 x-transition:leave-start="opacity-100 translate-y-0" 
+                 x-transition:leave-end="opacity-0 translate-y-1" 
+                 class="absolute top-full left-0 mt-1 w-72 bg-white rounded-xl shadow-lg border border-gray-100 p-2 z-50" 
+                 @click.outside="dropdown = null">
+                <a href="{{ route('shop.index') }}" class="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors border-b border-gray-100 mb-1">
+                    <div class="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
+                        <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-medium text-gray-900">View All Products</p>
+                        <p class="text-xs text-gray-500">Browse our complete catalog</p>
+                    </div>
+                </a>
+                
+                @if (isset($navCategories) && $navCategories->count() > 0)
+                    <div class="max-h-80 overflow-y-auto">
+                        @foreach ($navCategories as $category)
+                            <a href="{{ route('shop.index') }}?category={{ $category->slug }}" 
+                               class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors">
+                                @if ($category->children && $category->children->count() > 0)
+                                    <div class="w-2 h-2 bg-primary/50 rounded-full"></div>
+                                @else
+                                    <div class="w-2 h-2 bg-gray-300 rounded-full"></div>
+                                @endif
+                                <span class="font-medium">{{ $category->name }}</span>
+                            </a>
+                            @if ($category->children && $category->children->count() > 0)
+                                @foreach ($category->children as $child)
+                                    <a href="{{ route('shop.index') }}?category={{ $child->slug }}" 
+                                       class="flex items-center gap-3 pl-10 pr-4 py-2 text-sm text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors">
+                                        <span>{{ $child->name }}</span>
+                                    </a>
+                                @endforeach
+                            @endif
+                        @endforeach
+                    </div>
+                @else
+                    <a href="{{ route('shop.index') }}?category=pos-systems" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors">
+                        <span class="font-medium">POS Systems</span>
+                    </a>
+                    <a href="{{ route('shop.index') }}?category=printers" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors">
+                        <span class="font-medium">Printers</span>
+                    </a>
+                    <a href="{{ route('shop.index') }}?category=pos-hardware" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors">
+                        <span class="font-medium">Scanners</span>
+                    </a>
+                    <a href="{{ route('shop.index') }}?category=computers" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors">
+                        <span class="font-medium">Computers</span>
+                    </a>
+                    <a href="{{ route('shop.index') }}?category=monitors" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors">
+                        <span class="font-medium">Monitors</span>
+                    </a>
+                    <a href="{{ route('shop.index') }}?category=packaging-stickers" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors">
+                        <span class="font-medium">Packaging</span>
+                    </a>
+                @endif
+            </div>
         </li>
         <li @mouseenter="dropdown = 'pos'" @mouseleave="dropdown = null" class="relative">
             <button class="text-sm text-gray-600 hover:text-primary font-medium px-3 py-2 inline-flex items-center gap-1 transition-colors">

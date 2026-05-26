@@ -8,6 +8,8 @@
 
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=inter:300,400,500,600,700&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/webp" href="{{ asset('images/logos/denny-logo.webp') }}">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @stack('styles')
