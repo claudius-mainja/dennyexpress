@@ -1,0 +1,1 @@
+php -d extension=openssl -d extension=curl -d extension=fileinfo -d extension=pdo_mysql -d extension=gd -d extension=zip -d extension=intl %*

@@ -1,0 +1,657 @@
+{
+    "business_info":  {
+                          "social_media":  [
+                                               "Facebook",
+                                               "Twitter",
+                                               "Instagram",
+                                               "Pinterest"
+                                           ],
+                          "phone_numbers":  [
+                                                "+27 74 355 1336",
+                                                "012 023 3315"
+                                            ],
+                          "email_sales":  "sales@dennyexpress.co.za",
+                          "whatsapp":  "WhatsApp available on site",
+                          "tagline":  "Point of Sale \u0026 Computers Johannesburg",
+                          "description":  "Denny Express has a strong focus on providing cutting-edge solutions to businesses of all sizes, the company offers a comprehensive range of POS systems, hardware, and IT equipment.",
+                          "copyright":  "(c) 2025, Denny Express Group - All Rights Reserved.",
+                          "business_name":  "Denny Express Group",
+                          "designed_by":  "Numa Technologies",
+                          "email_support":  "Support1234@Ecomall.com",
+                          "history":  "With over 7 years in business, Denny Express offers comprehensive point of sale solutions for small to medium businesses to accurately manage sales, stock control and accounting.",
+                          "mission":  "We aspire to set industry benchmarks for excellence, constantly innovating and adapting to emerging technologies. By fostering enduring relationships with our clients, suppliers, and employees.",
+                          "address":  "187 Alexandra, Halfway House, Midrand, Gauteng, South Africa"
+                      },
+    "categories":  [
+                       {
+                           "name":  "Monitors",
+                           "id":  101,
+                           "slug":  "monitors",
+                           "product_count":  1
+                       },
+                       {
+                           "name":  "POS Systems",
+                           "id":  188,
+                           "slug":  "pos-systems",
+                           "product_count":  33
+                       },
+                       {
+                           "name":  "Uncategorized",
+                           "id":  15,
+                           "slug":  "uncategorized",
+                           "product_count":  10
+                       },
+                       {
+                           "name":  "WiFi Routers",
+                           "id":  187,
+                           "slug":  "wifi-routers",
+                           "product_count":  0
+                       }
+                   ],
+    "payment_methods":  {
+                            "payjustnow":  {
+                                               "description":  "Pay over 3 EQUAL zero-interest instalments with PayJustNow.",
+                                               "interest":  "0% interest. 3 payments. No stress.",
+                                               "requirements":  [
+                                                                    "Be over 18 years old",
+                                                                    "Be a South African resident",
+                                                                    "Have a debit or credit card",
+                                                                    "Have a valid email address"
+                                                                ]
+                                           }
+                        },
+    "products":  [
+                     {
+                         "url":  "https://dennyexpress.co.za/product/label-sticker-printing-scale-30kgs-butcher-bakeryfruit-and-veg/",
+                         "slug":  "label-sticker-printing-scale-30kgs-butcher-bakeryfruit-and-veg",
+                         "id":  20388,
+                         "price":  8500,
+                         "discount_percentage":  43,
+                         "category":  "POS Systems",
+                         "description":  "best for butcher, bakery, fruit and veg. Electronic Label/Sticker Printing Scale. Capacity: 30kg, AC Power supply: 220V/50Hz, Division: 10g, Dimensions: 40x45x20cm, Weight: 7.2kg",
+                         "name":  "Label sticker Printing Scale 30kgs butcher, bakery, fruit and veg",
+                         "stock_status":  "In stock",
+                         "on_sale":  true,
+                         "original_price":  15000
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/point-of-sale-systems-combo-15-touch-terminal-new/",
+                         "slug":  "point-of-sale-systems-combo-15-touch-terminal-new",
+                         "id":  20386,
+                         "price":  9999,
+                         "discount_percentage":  47,
+                         "category":  "POS Systems",
+                         "description":  "Complete POS System - 15.6inch Touch Point of Sale Terminal, 80MM Thermal Receipt/Slip Printer, RJ11/12 Kick Cash Drawer, USB Barcode Scanner and Free POS Software - New. Intel Core i5-4210U, 4GB DDR3 RAM, 128GB SSD.",
+                         "name":  "Point Of Sale Systems Combo 15inch Touch Terminal NEW",
+                         "stock_status":  "In stock",
+                         "on_sale":  true,
+                         "original_price":  19000
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/hp-screen-only-pay-just-now/",
+                         "slug":  "hp-screen-only-pay-just-now",
+                         "id":  19451,
+                         "price":  9300,
+                         "discount_percentage":  15,
+                         "category":  "Uncategorized",
+                         "description":  "HP PR7-7800 Retail POS System Combo - Intel Core i5-2400S, 8GB DDR3 Memory, 120GB SSD, MS Win10 Pro, 15inch Touch Terminal, POS Cash Drawer, Epson Thermal Slip Printer, 1D-2D USB Barcode Scanner (Certified Refurbished)",
+                         "name":  "HP PR7-7800 Retail POS System Combo",
+                         "stock_status":  "Out of stock",
+                         "on_sale":  true,
+                         "original_price":  11000
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/wintech-anypos-coore-i5-6-in-1-set-combo-pooint-of-sale-system/",
+                         "slug":  "wintech-anypos-coore-i5-6-in-1-set-combo-pooint-of-sale-system",
+                         "id":  19342,
+                         "price":  11000,
+                         "discount_percentage":  42,
+                         "category":  "POS Systems",
+                         "description":  "Core i3 7th Generation, 8GB RAM, 256GB SSD, 3.0 GHz. Includes cash drawer, barcode scanner, thermal printer, keyboard, mouse, free software.",
+                         "name":  "NEW Point of sale system with customer display 6 in 1 set combo",
+                         "stock_status":  "In stock",
+                         "on_sale":  true,
+                         "original_price":  19000
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/elo-all-in-one-point-of-sale-system/",
+                         "slug":  "elo-all-in-one-point-of-sale-system",
+                         "id":  19336,
+                         "price":  9000,
+                         "discount_percentage":  10,
+                         "category":  "POS Systems",
+                         "description":  "CORE I3, 8 GIG RAM. 6 in one combo with new cash drawer, new keyboard, new scanner, new printer, free software. Refurbished Posiflex all-in-one touchscreen.",
+                         "name":  "elo all in one point of sale system",
+                         "stock_status":  "Out of stock",
+                         "on_sale":  true,
+                         "original_price":  10000
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/hisense-luna-pos-hk718-touch-computer-5-in-one-combo/",
+                         "slug":  "hisense-luna-pos-hk718-touch-computer-5-in-one-combo",
+                         "id":  19297,
+                         "price":  9500,
+                         "discount_percentage":  5,
+                         "category":  "POS Systems",
+                         "description":  "Hisense HI-HK718B all in one touch screen with cash drawer, barcode scanner, thermal paper rolls.",
+                         "name":  "Hisense Luna POS HK718 Touch Computer 5 in one combo FULL SET",
+                         "stock_status":  "Out of stock",
+                         "on_sale":  true,
+                         "original_price":  10000
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/high-quality-thermal-printer-xprinter-80mm/",
+                         "slug":  "high-quality-thermal-printer-xprinter-80mm",
+                         "id":  19261,
+                         "price":  1300,
+                         "category":  "POS Systems",
+                         "description":  "Xprinter thermal receipt printer with automatic cutter. USB interface, printing width 56mm, paper width 20-60mm, 203 DPI, printing speed 152mm-s.",
+                         "name":  "High Quality Thermal Receipt Printer 80 x 83 mm",
+                         "stock_status":  "In stock",
+                         "on_sale":  false
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/point-of-sale-3-in-one-installation-combo-payjustnow/",
+                         "slug":  "point-of-sale-3-in-one-installation-combo-payjustnow",
+                         "id":  19258,
+                         "price":  41800,
+                         "category":  "POS Systems",
+                         "description":  "X2 refurbished all in one touch screen, X2 new cash drawer, X2 new printers, X2 new barcode scanners, X2 new keyboard, X2 new mouse, X1 refurbished monitor, X1 refurbished core i5 back office, installation and setup, training, transport included.",
+                         "name":  "POINT OF SALE 3 IN ONE INSTALLATION COMBO payjustnow",
+                         "stock_status":  "In stock",
+                         "on_sale":  false
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/point-of-sale-combo-full-set-pay-just-now/",
+                         "slug":  "point-of-sale-combo-full-set-pay-just-now",
+                         "id":  19253,
+                         "price":  7000,
+                         "discount_percentage":  39,
+                         "category":  "POS Systems",
+                         "description":  "Free software - No monthly charges - FREE DELIVERY. Point Of Sale Systems Combo 15inch Touch Terminal, POS (Certified Refurbished).",
+                         "name":  "Point Of Sale Systems Combo 15inch Touch Terminal, POS (Certified Refurbished)",
+                         "stock_status":  "In stock",
+                         "on_sale":  true,
+                         "original_price":  11550
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/speed-point/",
+                         "slug":  "speed-point",
+                         "id":  19232,
+                         "price":  3500,
+                         "category":  "POS Systems",
+                         "description":  "2.5 percent per transaction. Includes DennyPos PrintPOS card machine, free back up Snap and Pay QR Code Sign, charger, user guide, card acceptance display decal, tally rolls.",
+                         "name":  "Speed point P3 Device",
+                         "stock_status":  "In stock",
+                         "on_sale":  false
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/2d-barcode-scanner-automatic-megapixel-handsfree/",
+                         "slug":  "2d-barcode-scanner-automatic-megapixel-handsfree",
+                         "id":  19163,
+                         "price":  2500,
+                         "category":  "POS Systems",
+                         "description":  "UniBar CoreBit | 1D QR 2D Barcode Scanner | Automatic.",
+                         "name":  "2D Barcode Scanner Automatic MegaPixel Handsfree",
+                         "stock_status":  "In stock",
+                         "on_sale":  false
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/godex-thermal-transfer-industria-printer/",
+                         "slug":  "godex-thermal-transfer-industria-printer",
+                         "id":  19148,
+                         "price":  12600,
+                         "category":  "Uncategorized",
+                         "description":  "GoDEX ZX420i Thermal Transfer Industrial Printer. 203 dpi, print speed up to 6 inch per second, 450 meter ribbon, 8 inch label. USB2.0, USB host, Serial, parallel, Ethernet, optional WIFI and Bluetooth.",
+                         "name":  "GODEX THERMAL TRANSFER INDUSTRIA PRINTER",
+                         "stock_status":  "In stock",
+                         "on_sale":  false
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/godex-label-rewinder-4-60w-ea10681p-240/",
+                         "slug":  "godex-label-rewinder-4-60w-ea10681p-240",
+                         "id":  19144,
+                         "price":  7900,
+                         "category":  "Uncategorized",
+                         "description":  "Rewinder with idler arm that can be positioned to rewind labels from either side of the printer. Supports inside and outside label rewinding.",
+                         "name":  "GODEX LABEL REWINDER 4inch 60W EA10681P-240",
+                         "stock_status":  "In stock",
+                         "on_sale":  false
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/godex-direct-thermal-desktop-printer-2/",
+                         "slug":  "godex-direct-thermal-desktop-printer-2",
+                         "id":  19141,
+                         "price":  3400,
+                         "category":  "Uncategorized",
+                         "description":  "GoDEX DT4x Direct Thermal Desktop Barcode Printer. 203 dpi, 7 IPS. USB 2.0, serial, Ethernet. Auto language emulations: EZPL, GEPL, GZPL.",
+                         "name":  "GODEX DIRECT THERMAL DESKTOP PRINTER (DT4x)",
+                         "stock_status":  "In stock",
+                         "on_sale":  false
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/godex-direct-thermal-desktop-printer/",
+                         "slug":  "godex-direct-thermal-desktop-printer",
+                         "id":  19137,
+                         "price":  3400,
+                         "category":  "Uncategorized",
+                         "description":  "GoDEX DT2x ultralight, compact direct thermal printer. 203 dpi, 7 inch per second. Ethernet, Serial, USB.",
+                         "name":  "GODEX DIRECT THERMAL DESKTOP PRINTER (DT2x)",
+                         "stock_status":  "In stock",
+                         "on_sale":  false
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/19132/",
+                         "slug":  "19132",
+                         "id":  19132,
+                         "price":  3500,
+                         "category":  "POS Systems",
+                         "description":  "Brother QL-700. Manufacturer: BROTHER, Model: QL-700, Dimensions: 5.04x8.7x6.02 cm, Weight: 1.1 kg.",
+                         "name":  "Scanner (Brother QL-700)",
+                         "stock_status":  "In stock",
+                         "on_sale":  false
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/barcode-printer-dt2-godex/",
+                         "slug":  "barcode-printer-dt2-godex",
+                         "id":  19123,
+                         "price":  4000,
+                         "category":  "Uncategorized",
+                         "description":  "2.5 inch direct thermal printer. Space-saving, wall-mounted. USB 2.0, serial, Ethernet. Auto language: EZPL, GEPL, GZPL.",
+                         "name":  "BARCODE PRINTER DT2 GODEX",
+                         "stock_status":  "In stock",
+                         "on_sale":  false
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/xp-p810-mini-mobile-receipt-printer/",
+                         "slug":  "xp-p810-mini-mobile-receipt-printer",
+                         "id":  18995,
+                         "price":  1900,
+                         "discount_percentage":  5,
+                         "category":  "Uncategorized",
+                         "description":  "XPP810. ABS material. Power charging by power bank/computer. Direct thermal. Bluetooth and Wifi. SKU: XP-P810.",
+                         "name":  "XP-P810 MINI MOBILE RECEIPT PRINTER",
+                         "stock_status":  "Out of stock",
+                         "on_sale":  true,
+                         "original_price":  2000
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/money-counter-with-counterfeit-detection/",
+                         "slug":  "money-counter-with-counterfeit-detection",
+                         "id":  18982,
+                         "price":  3200,
+                         "discount_percentage":  9,
+                         "category":  "POS Systems",
+                         "description":  "900+ bills per minute. 300 bill capacity. UV and magnetic counterfeit detection. Counting speed: 1000 notes per minute.",
+                         "name":  "Money Counter With Counterfeit Detection",
+                         "stock_status":  "In stock",
+                         "on_sale":  true,
+                         "original_price":  3500
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/snowrex-coin-scale/",
+                         "slug":  "snowrex-coin-scale",
+                         "id":  18979,
+                         "price":  4500,
+                         "discount_percentage":  4,
+                         "category":  "POS Systems",
+                         "description":  "High precision load cell. Compact design. Auto calibration. LCD display, 5 digits.",
+                         "name":  "SNOWREX COIN SCALE",
+                         "stock_status":  "In stock",
+                         "on_sale":  true,
+                         "original_price":  4700
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/avansa-coinmate-1200-coin-counter-sorter/",
+                         "slug":  "avansa-coinmate-1200-coin-counter-sorter",
+                         "id":  18974,
+                         "price":  1300,
+                         "discount_percentage":  4,
+                         "category":  "POS Systems",
+                         "description":  "9 coin sorting trays with different sized holes for different coin denominations.",
+                         "name":  "AVANSA CoinMate 1200 Coin Counter and Sorter",
+                         "stock_status":  "In stock",
+                         "on_sale":  true,
+                         "original_price":  1350
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/ccsa-20-coin-counting-scale/",
+                         "slug":  "ccsa-20-coin-counting-scale",
+                         "id":  18972,
+                         "price":  7500,
+                         "category":  "POS Systems",
+                         "description":  "Adam Equipment CCSA coin/token counting scale. 9 preset values, 3 token values. Memory total.",
+                         "name":  "CCSA 20 COIN COUNTING SCALE",
+                         "stock_status":  "In stock",
+                         "on_sale":  false
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/automatic-coin-sorter-nts-zb-380/",
+                         "slug":  "automatic-coin-sorter-nts-zb-380",
+                         "id":  18968,
+                         "price":  4100,
+                         "discount_percentage":  9,
+                         "category":  "POS Systems",
+                         "description":  "Hopper: 300-500 pieces. 330 coins/minute. RS232 serial port for thermal printer.",
+                         "name":  "AUTOMATIC COIN SORTER NTS ZB-380",
+                         "stock_status":  "In stock",
+                         "on_sale":  true,
+                         "original_price":  4500
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/automatic-coin-sorter/",
+                         "slug":  "automatic-coin-sorter",
+                         "id":  18966,
+                         "price":  4025,
+                         "discount_percentage":  11,
+                         "category":  "POS Systems",
+                         "description":  "270 coins per minute. 8 receiving slots. Sorting, counting, batching. 350-400 unit hopper.",
+                         "name":  "AUTOMATIC COIN SORTER",
+                         "stock_status":  "In stock",
+                         "on_sale":  true,
+                         "original_price":  4500
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/fliptop-cash-drawer/",
+                         "slug":  "fliptop-cash-drawer",
+                         "id":  18963,
+                         "price":  1700,
+                         "discount_percentage":  11,
+                         "category":  "POS Systems",
+                         "description":  "Black base with stainless steel top. 8 coin and 6 note compartments. Lockable. RJ11 connector. 12V.",
+                         "name":  "FLIPTOP CASH DRAWER",
+                         "stock_status":  "In stock",
+                         "on_sale":  true,
+                         "original_price":  1900
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/cat5e-cable-grey-305m-2/",
+                         "slug":  "cat5e-cable-grey-305m-2",
+                         "id":  19661,
+                         "price":  1100,
+                         "discount_percentage":  15,
+                         "category":  "POS Systems",
+                         "description":  "CAT5e Cable Grey 305M.",
+                         "name":  "CAT5e Cable Grey 305M",
+                         "stock_status":  "In stock",
+                         "on_sale":  true,
+                         "original_price":  1300
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/point-of-sale-3-in-one-installation-combo-copy-2/",
+                         "slug":  "point-of-sale-3-in-one-installation-combo-copy-2",
+                         "id":  19660,
+                         "price":  45000,
+                         "discount_percentage":  13,
+                         "category":  "Uncategorized",
+                         "description":  "X2 refurbished touch screens, X2 new cash drawers, X2 new printers, X2 new barcode scanners, X2 keyboard+mouse, X1 UPS 1KW, X1 monitor, X1 core i5 back office. Training, transport. Software paid yearly.",
+                         "name":  "POINT OF SALE 3 IN ONE INSTALLATION COMBO WITH POWER BACK UP (refurbished)",
+                         "stock_status":  "In stock",
+                         "on_sale":  true,
+                         "original_price":  52000
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/point-of-sale-5-in-one-combo-with-poer-backup/",
+                         "slug":  "point-of-sale-5-in-one-combo-with-poer-backup",
+                         "id":  18955,
+                         "price":  85000,
+                         "discount_percentage":  6,
+                         "category":  "POS Systems",
+                         "description":  "X3 refurbished touch screens, X3 new cash drawers, X3 new printers, X3 new barcode scanners, X3 keyboard+mouse, X1 monitor, X1 core i5 back office. Software once off included.",
+                         "name":  "POINT OF SALE 5 IN ONE COMBO WITH POWER BACKUP (refurbished)",
+                         "stock_status":  "In stock",
+                         "on_sale":  true,
+                         "original_price":  90000
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/point-of-sale-4-in-one-installation-combo-with-power-back-up/",
+                         "slug":  "point-of-sale-4-in-one-installation-combo-with-power-back-up",
+                         "id":  18953,
+                         "price":  45000,
+                         "discount_percentage":  25,
+                         "category":  "POS Systems",
+                         "description":  "X3 refurbished touch screens, X3 new cash drawers, X3 new printers, X3 new barcode scanners, X3 keyboard+mouse, X1 monitor, X1 core i5 back office. Software once off included.",
+                         "name":  "POINT OF SALE 4 IN ONE INSTALLATION COMBO WITH POWER BACK UP (refurbished)",
+                         "stock_status":  "In stock",
+                         "on_sale":  true,
+                         "original_price":  60000
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/point-of-sale-3-in-one-installation-combo/",
+                         "slug":  "point-of-sale-3-in-one-installation-combo",
+                         "id":  18943,
+                         "price":  35000,
+                         "discount_percentage":  22,
+                         "category":  "POS Systems",
+                         "description":  "X2 refurbished touch screens, X2 new cash drawers, X2 new printers, X2 new barcode scanners, X2 keyboard+mouse, X1 monitor, X1 core i5 back office. Software paid yearly.",
+                         "name":  "POINT OF SALE 3 IN ONE INSTALLATION COMBO (refurbished)",
+                         "stock_status":  "In stock",
+                         "on_sale":  true,
+                         "original_price":  45000
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/point-of-sale-software-once-off-tavern-restaurant-retail-store-2/",
+                         "slug":  "point-of-sale-software-once-off-tavern-restaurant-retail-store-2",
+                         "id":  18938,
+                         "price":  3500,
+                         "discount_percentage":  22,
+                         "category":  "POS Systems",
+                         "description":  "FREE TRAINING AND FREE SUPPORT. Features: security, double entry accounting, VAT, discounts, barcode, inventory, custom payments, loyalty, promotions.",
+                         "name":  "point of sale software once off /tavern/restaurant/retail store",
+                         "stock_status":  "In stock",
+                         "on_sale":  true,
+                         "original_price":  4500
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/point-of-sale-software-tavern-restaurant-retail-store/",
+                         "slug":  "point-of-sale-software-tavern-restaurant-retail-store",
+                         "id":  18932,
+                         "price":  4500,
+                         "category":  "POS Systems",
+                         "description":  "FREE TRAINING AND FREE SUPPORT. Barcode, inventory, security, custom payments, split orders/payments, loyalty, promotions, custom receipts, credit, stock control.",
+                         "name":  "point of sale software /tavern/restaurant/retail store",
+                         "stock_status":  "In stock",
+                         "on_sale":  false
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/computer-monitors-22-inch/",
+                         "slug":  "computer-monitors-22-inch",
+                         "id":  18930,
+                         "price":  1800,
+                         "discount_percentage":  14,
+                         "category":  "Monitors",
+                         "description":  "COMPUTER MONITORS. 22 INCH refurbished.",
+                         "name":  "COMPUTER MONITORS. 22 INCH (refurbished units)",
+                         "stock_status":  "In stock",
+                         "on_sale":  true,
+                         "original_price":  2100
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/fujitsu-all-in-one-set-combo-refurbished/",
+                         "slug":  "fujitsu-all-in-one-set-combo-refurbished",
+                         "id":  18868,
+                         "price":  8500,
+                         "category":  "POS Systems",
+                         "description":  "Refurbished Posiflex all-in-one touchscreen with new cash drawer, keyboard, scanner, printer, free software.",
+                         "name":  "Fujitsu All in one set Combo refurbished",
+                         "stock_status":  "Out of stock",
+                         "on_sale":  false
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/keyboard-mouse-combo-588-tt/",
+                         "slug":  "keyboard-mouse-combo-588-tt",
+                         "id":  18866,
+                         "price":  140,
+                         "category":  "POS Systems",
+                         "description":  "KEYBOARD and MOUSE COMBO 588 #TT.",
+                         "name":  "KEYBOARD and MOUSE COMBO 588 #TT",
+                         "stock_status":  "In stock",
+                         "on_sale":  false
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/handheld-usb-laser-barcode-scanner-wired-pos-black-yhd-8200/",
+                         "slug":  "handheld-usb-laser-barcode-scanner-wired-pos-black-yhd-8200",
+                         "id":  18861,
+                         "price":  500,
+                         "discount_percentage":  47,
+                         "category":  "POS Systems",
+                         "description":  "Handheld USB Laser Barcode Scanner - Wired - POS (Black) - YHD-8200.",
+                         "name":  "Handheld USB Laser Barcode Scanner - Wired -POS (Black) - YHD-8200",
+                         "stock_status":  "In stock",
+                         "on_sale":  true,
+                         "original_price":  950
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/cash-drawer-black-rj11-rj12-printer-kick-interface/",
+                         "slug":  "cash-drawer-black-rj11-rj12-printer-kick-interface",
+                         "id":  18860,
+                         "price":  800,
+                         "category":  "POS Systems",
+                         "description":  "Connects via RJ11. 5 Note slots, 4 Coin slots. 24V Power, Micro Switch, Removable Tray.",
+                         "name":  "Cash Drawer - Black, RJ11 / RJ12 Printer Kick Interface",
+                         "stock_status":  "In stock",
+                         "on_sale":  false
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/epson-tm-t88iv-t88v-series-thermal-receipt-printer-parallel-refurb/",
+                         "slug":  "epson-tm-t88iv-t88v-series-thermal-receipt-printer-parallel-refurb",
+                         "id":  18859,
+                         "price":  5400,
+                         "category":  "POS Systems",
+                         "description":  "Epson Thermal Receipt Printer. Paper reduction function. TM-T88IV/TM-T88V Series.",
+                         "name":  "Epson TM T88V Ethernet Thermal Receipt Printer (new)",
+                         "stock_status":  "In stock",
+                         "on_sale":  false
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/80mm-thermal-printer-usb/",
+                         "slug":  "80mm-thermal-printer-usb",
+                         "id":  18855,
+                         "price":  2000,
+                         "category":  "POS Systems",
+                         "description":  "80mm Thermal Printer usb.",
+                         "name":  "80mm Thermal Printer usb",
+                         "stock_status":  "In stock",
+                         "on_sale":  false
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/point-of-sale-combo-full-set-once-off-core-i5/",
+                         "slug":  "point-of-sale-combo-full-set-once-off-core-i5",
+                         "id":  16655,
+                         "price":  7500,
+                         "discount_percentage":  25,
+                         "category":  "POS Systems",
+                         "description":  "Free software - No monthly charges - FREE DELIVERY. SKU: 0051. New cash drawer, keyboard, scanner, printer, free POS software.",
+                         "name":  "Point Of Sale Combo Full Set Once Off (certified refurbished)",
+                         "stock_status":  "In stock (4 available)",
+                         "on_sale":  true,
+                         "original_price":  10000
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/hp-point-of-sale-system-combo-set-core-i5/",
+                         "slug":  "hp-point-of-sale-system-combo-set-core-i5",
+                         "id":  1076,
+                         "price":  8500,
+                         "category":  "Uncategorized",
+                         "description":  "HP All-in-One POS Bundle. Refurbished HP RP7800 touch screen (4GB RAM, 128GB SSD). New cash drawer, scanner, printer, keyboard, mouse. Free software, training. SKU: 0040.",
+                         "name":  "Hp point of sale system Combo set core i5",
+                         "stock_status":  "Out of stock",
+                         "on_sale":  false
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/dell-optiplex-3050-fullset/",
+                         "slug":  "dell-optiplex-3050-fullset",
+                         "id":  16635,
+                         "price":  9500,
+                         "category":  "POS Systems",
+                         "description":  "Dell OptiPlex 3050. Intel i5, 6th Gen, 8GB RAM, 240GB SSD, Win 10 Pro. 1 Year Warranty. 15inch Monitor. SKU: 0014.",
+                         "name":  "Dell OptiPlex 3050 FULLSET (certified refurbished)",
+                         "stock_status":  "In stock (96 available)",
+                         "on_sale":  false
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/all-in-one-touch-screen-pos-new/",
+                         "slug":  "all-in-one-touch-screen-pos-new",
+                         "id":  85,
+                         "price":  7000,
+                         "category":  "Uncategorized",
+                         "description":  "All-in-one POS. 4GB RAM, Windows 10, 64GB SSD, Touch Screen, Free POS Software. SKU: 0084.",
+                         "name":  "All In One Touch Screen Pos New",
+                         "stock_status":  "In stock (9 available)",
+                         "on_sale":  false
+                     },
+                     {
+                         "url":  "https://dennyexpress.co.za/product/xprinter-thermal-barcode-printer/",
+                         "slug":  "xprinter-thermal-barcode-printer",
+                         "id":  16644,
+                         "price":  2500,
+                         "discount_percentage":  32,
+                         "category":  "POS Systems",
+                         "description":  "XPrinter Direct Thermal Single Barcode Printer. 203 DPI, 127 mm/s, 108 mm width. USB 2.0, Ethernet. Bartender software. SKU: 0036.",
+                         "name":  "XPrinterThermal Barcode Printer",
+                         "stock_status":  "In stock",
+                         "on_sale":  true,
+                         "original_price":  3700
+                     }
+                 ],
+    "site_url":  "https://dennyexpress.co.za/",
+    "warranty":  {
+                     "standard_warranty":  "18 months warranty at Genuine Warranty Center.",
+                     "hardware_warranty":  "12 Months Carry-In Warranty on Hardware (for some products)"
+                 },
+    "site_name":  "Denny Express | Point of Sale \u0026 Computers Johannesburg",
+    "shipping_options":  {
+                             "delivery_info":  "Nationwide Delivery across South Africa on all orders.",
+                             "estimated_delivery_time":  "14-30 days"
+                         },
+    "reviews":  [
+                    {
+                        "date":  "2026-01-20",
+                        "rating":  5,
+                        "author":  "Kabelo Mbuli",
+                        "text":  "Good service, morokweng northwest I bought for my bottle store everything new and sistim is working fine thank you denny express, my stock is always Ballanced"
+                    },
+                    {
+                        "date":  "2026-01-10",
+                        "rating":  5,
+                        "author":  "Danielle Mailosi",
+                        "text":  "Thanks to Denny Express they Delivered our POS in Gqeberha and their POS is user friendly"
+                    },
+                    {
+                        "date":  "2026-01-09",
+                        "rating":  5,
+                        "author":  "Zenande Ngomane",
+                        "text":  "Thank you denny express I am nolonger paying monthly you saved me guys"
+                    },
+                    {
+                        "date":  "2026-01-09",
+                        "rating":  5,
+                        "author":  "Themko Bhomu",
+                        "text":  "The service was good at Tonga and product"
+                    },
+                    {
+                        "date":  "2026-01-05",
+                        "rating":  5,
+                        "author":  "Asamiru Mavalani",
+                        "text":  "Denny express group is reliable and a company to trust Siya delivered my Pos very early in Great Giyana"
+                    },
+                    {
+                        "date":  "2025-12-31",
+                        "rating":  5,
+                        "author":  "Richard Nkgweng",
+                        "text":  "Good service"
+                    },
+                    {
+                        "date":  "2025-12-29",
+                        "rating":  5,
+                        "author":  "Zintle Toni",
+                        "text":  "They are good in making to understand what they a doing, and the person who is giving you the practice is so patient like what they a doing thank u"
+                    },
+                    {
+                        "date":  "2025-12-27",
+                        "rating":  5,
+                        "author":  "Nombuso Nxumalo",
+                        "text":  "Excellent service"
+                    }
+                ]
+}
