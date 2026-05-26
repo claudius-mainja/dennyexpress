@@ -9,8 +9,9 @@
 
     <title>@yield('title', config('app.name', 'Denny Express')) | Denny Express</title>
 
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=inter:300,400,500,600,700&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -21,7 +22,7 @@
     cartOpen: false,
     searchOpen: false,
     mobileOpen: false,
-}" class="font-sans antialiased text-dark-charcoal bg-white">
+ }" class="font-sans antialiased text-gray-100 bg-dark">
 
     <x-partials.topbar />
     <x-partials.header />

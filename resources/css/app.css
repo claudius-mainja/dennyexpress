@@ -1,24 +1,24 @@
 @import "tailwindcss";
 
 @theme {
-    --font-sans: 'Inter', 'Plus Jakarta Sans', ui-system, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-display: 'Inter', 'Plus Jakarta Sans', ui-system, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-sans: 'Manrope', 'Inter', 'Plus Jakarta Sans', ui-system, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-display: 'Manrope', 'Inter', 'Plus Jakarta Sans', ui-system, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
     --color-primary: #10b981;
     --color-primary-light: #34d399;
     --color-primary-dark: #059669;
     
-    --color-secondary: #f97316;
-    --color-secondary-light: #fb923c;
-    --color-secondary-dark: #ea580c;
+    --color-secondary: #374151;
+    --color-secondary-light: #4b5563;
+    --color-secondary-dark: #1f2937;
 
     --color-dark: #111827;
-    --color-dark-light: #374151;
-    --color-dark-lighter: #4b5563;
+    --color-dark-light: #1f2937;
+    --color-dark-lighter: #374151;
     
-    --color-accent-green: #10b981;
-    --color-accent-orange: #f97316;
-    --color-accent-red: #ef4444;
+    --color-surface: #1f2937;
+    --color-surface-light: #374151;
+    --color-surface-dark: #111827;
 
     --color-success: #10b981;
     --color-success-light: #d1fae5;
