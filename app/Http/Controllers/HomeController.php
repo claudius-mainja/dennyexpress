@@ -26,12 +26,37 @@ class HomeController extends Controller
                 ->get();
         }
 
+        $saleProducts = Product::with('primaryImage', 'categories')
+            ->where('is_active', true)
+            ->where('on_sale', true)
+            ->latest()
+            ->limit(12)
+            ->get();
+
+        if ($saleProducts->isEmpty()) {
+            $saleProducts = Product::with('primaryImage', 'categories')
+                ->where('is_active', true)
+                ->whereNotNull('sale_price')
+                ->whereColumn('sale_price', '<', 'price')
+                ->latest()
+                ->limit(12)
+                ->get();
+        }
+
+        if ($saleProducts->isEmpty()) {
+            $saleProducts = Product::with('primaryImage', 'categories')
+                ->where('is_active', true)
+                ->inRandomOrder()
+                ->limit(12)
+                ->get();
+        }
+
         $categories = Category::where('is_active', true)
             ->whereNull('parent_id')
             ->with('children')
             ->orderBy('sort_order')
             ->get();
 
-        return view('welcome', compact('featuredProducts', 'categories'));
+        return view('welcome', compact('featuredProducts', 'saleProducts', 'categories'));
     }
 }

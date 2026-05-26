@@ -9,7 +9,7 @@
                 </button>
 
                 <a href="{{ route('home') }}" class="flex items-center gap-2.5 shrink-0">
-                    <img src="{{ asset('images/logos/denny-logo.webp') }}" alt="Denny Express" class="h-10 lg:h-12 object-contain" 
+                    <img src="{{ asset('images/logos/denny-logo.webp') }}" alt="Denny Express" class="h-12 lg:h-16 object-contain" 
                          onerror="this.src='https://dennyexpress.co.za/wp-content/uploads/2025/05/denny-logo.webp'">
                 </a>
             </div>
