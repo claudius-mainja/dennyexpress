@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 
-define('LARAVEL_START', microtime(true));
+defined('LARAVEL_START') || define('LARAVEL_START', microtime(true));
 
 // If PHP is running on Vercel
 if (isset($_ENV['VERCEL_ENV'])) {
