@@ -103,6 +103,50 @@ document.addEventListener('alpine:init', () => {
         },
     }));
 
+    Alpine.data('wishlistBtn', () => ({
+        productId: null,
+        isWishlisted: false,
+        loading: false,
+        init() {
+            this.productId = parseInt(this.$el.dataset.productId);
+            const ids = window.initialWishlistIds || [];
+            this.isWishlisted = ids.includes(this.productId);
+        },
+        async toggle() {
+            if (this.loading || !this.productId) return;
+            this.loading = true;
+            try {
+                const token = document.querySelector('meta[name="csrf-token"]')?.content;
+                const response = await fetch(`/wishlist/toggle/${this.productId}`, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': token,
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                });
+                const data = await response.json();
+                if (data.success) {
+                    this.isWishlisted = data.is_in_wishlist;
+                    window.dispatchEvent(new CustomEvent('wishlist-updated', {
+                        detail: { count: data.count, productId: this.productId, isIn: data.is_in_wishlist }
+                    }));
+                    if (data.is_in_wishlist) {
+                        if (!window.initialWishlistIds.includes(this.productId)) {
+                            window.initialWishlistIds.push(this.productId);
+                        }
+                    } else {
+                        window.initialWishlistIds = window.initialWishlistIds.filter(id => id !== this.productId);
+                    }
+                }
+            } catch (e) {
+                console.error('Wishlist toggle failed', e);
+            } finally {
+                this.loading = false;
+            }
+        },
+    }));
+
     Alpine.data('particles', () => ({
         particles: [],
         init() {

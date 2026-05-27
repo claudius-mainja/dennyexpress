@@ -40,9 +40,18 @@
                 </svg>
                 Add to Cart
             </button>
-            <button type="button" class="inline-flex items-center justify-center px-4 py-3.5 bg-white text-gray-700 text-sm font-semibold rounded-xl border-2 border-gray-200 hover:bg-gray-50 hover:border-gray-300 transition-all duration-300" title="Add to Wishlist">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <button type="button"
+                    data-product-id="{{ $productId }}"
+                    x-data="wishlistBtn"
+                    @click="toggle"
+                    :class="{ 'bg-red-50 border-red-300': isWishlisted }"
+                    class="inline-flex items-center justify-center px-4 py-3.5 bg-white text-gray-700 text-sm font-semibold rounded-xl border-2 border-gray-200 hover:bg-gray-50 hover:border-gray-300 transition-all duration-300"
+                    :title="isWishlisted ? 'Remove from Wishlist' : 'Add to Wishlist'">
+                <svg x-show="!isWishlisted" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+                <svg x-show="isWishlisted" class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                 </svg>
             </button>
         </div>

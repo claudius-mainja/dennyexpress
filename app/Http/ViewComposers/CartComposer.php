@@ -23,6 +23,7 @@ class CartComposer
         $cartCount = $this->cartService->count();
         $cartTotal = $this->cartService->total();
         $wishlistCount = $this->wishlistService->count();
+        $wishlistIds = $this->wishlistService->allIds();
 
         $navCategories = Category::where('is_active', true)
             ->whereNull('parent_id')
@@ -35,6 +36,7 @@ class CartComposer
             'cartCount' => $cartCount,
             'cartTotal' => $cartTotal,
             'wishlistCount' => $wishlistCount,
+            'wishlistIds' => $wishlistIds,
             'navCategories' => $navCategories,
         ]);
     }

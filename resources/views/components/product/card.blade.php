@@ -63,6 +63,21 @@
             @endif
         @endif
 
+        <button type="button"
+                data-product-id="{{ $id }}"
+                x-data="wishlistBtn"
+                @click="toggle"
+                :class="{ 'bg-red-50 border-red-200': isWishlisted }"
+                class="absolute top-3 right-3 z-10 w-9 h-9 inline-flex items-center justify-center rounded-full bg-white border border-gray-200 shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-200"
+                :title="isWishlisted ? 'Remove from Wishlist' : 'Add to Wishlist'">
+            <svg x-show="!isWishlisted" class="w-4.5 h-4.5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+            <svg x-show="isWishlisted" class="w-4.5 h-4.5 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+        </button>
+
         @if (!$inStock || ($stockQuantity !== null && $stockQuantity <= 0))
             <div class="absolute inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center">
                 <span class="bg-gray-900 text-white text-sm font-semibold px-4 py-2 rounded-xl">

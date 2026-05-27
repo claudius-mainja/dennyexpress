@@ -89,6 +89,11 @@ class WishlistService
         return count($this->getProductIds());
     }
 
+    public function allIds(): array
+    {
+        return $this->getProductIds();
+    }
+
     public function isInWishlist(int $productId): bool
     {
         return in_array($productId, $this->getProductIds());

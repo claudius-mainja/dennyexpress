@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="@yield('meta_description', config('app.name', 'Denny Express') . ' - Premium IT Hardware & Networking Solutions')">
+    <script>window.initialWishlistIds = @json($wishlistIds ?? []);</script>
     <meta name="keywords" content="@yield('meta_keywords', 'IT hardware, networking, servers, storage, South Africa')">
 
     <title>@yield('title', config('app.name', 'Denny Express')) | Denny Express</title>
@@ -22,6 +23,12 @@
     cartOpen: false,
     searchOpen: false,
     mobileOpen: false,
+    wishlistCount: {{ $wishlistCount ?? 0 }},
+    init() {
+        window.addEventListener('wishlist-updated', (e) => {
+            this.wishlistCount = e.detail.count;
+        });
+    },
  }" class="font-sans antialiased text-gray-100 bg-dark">
 
     <x-partials.topbar />
