@@ -18,4 +18,12 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $app = require __DIR__ . '/../bootstrap/app.php';
 
-$app->handleRequest(\Illuminate\Http\Request::capture());
+try {
+    $app->handleRequest(\Illuminate\Http\Request::capture());
+} catch (\Throwable $e) {
+    http_response_code(500);
+    header('Content-Type: text/plain');
+    echo "Error: " . $e->getMessage() . "\n";
+    echo "File: " . $e->getFile() . ":" . $e->getLine() . "\n";
+    echo "Trace:\n" . $e->getTraceAsString() . "\n";
+}
