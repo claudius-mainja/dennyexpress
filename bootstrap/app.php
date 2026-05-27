@@ -11,17 +11,8 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        $middleware->validateCsrfTokens(except: [
-            '__migrate',
-            '__seed',
-        ]);
+        //
     })
     ->withExceptions(function (Exceptions $exceptions): void {
-        $exceptions->render(function (\Throwable $e) {
-            return response(
-                "Error: {$e->getMessage()}\nFile: {$e->getFile()}:{$e->getLine()}\nTrace:\n{$e->getTraceAsString()}",
-                500,
-                ['Content-Type' => 'text/plain']
-            );
-        });
+        //
     })->create();
