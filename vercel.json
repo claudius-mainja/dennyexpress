@@ -1,6 +1,7 @@
 {
     "version": 2,
     "framework": null,
+    "outputDirectory": "public",
     "functions": {
         "api/index.php": {
             "runtime": "vercel-php@0.7.1"
@@ -25,7 +26,7 @@
         }
     ],
     "build": {
-        "command": "npm run build",
+        "buildCommand": "npm run build",
         "env": {
             "APP_ENV": "production",
             "APP_DEBUG": "false",
