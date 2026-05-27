@@ -24,14 +24,13 @@ class PaymentController extends Controller
 
     public function process(Order $order)
     {
-        if ($order->payment_status === PaymentStatus::PAID->value) {
+        if ($order->payment_status === PaymentStatus::COMPLETED) {
             return redirect()->route('checkout.success', $order->order_number)
                 ->with('info', 'This order has already been paid.');
         }
 
-        $paymentMethod = PaymentMethod::tryFrom($order->payment_method);
-
-        switch ($paymentMethod) {
+        switch ($order->payment_method) {
+            case PaymentMethod::CARD:
             case PaymentMethod::PAYFAST:
                 return $this->redirectToPayFast($order);
             
@@ -119,7 +118,7 @@ class PaymentController extends Controller
 
         if ($paymentStatus === 'complete') {
             $order->update([
-                'payment_status' => PaymentStatus::PAID->value,
+                'payment_status' => PaymentStatus::COMPLETED->value,
                 'status' => OrderStatus::PROCESSING->value,
                 'transaction_id' => $data['pf_payment_id'] ?? null,
                 'paid_at' => now(),
@@ -156,7 +155,7 @@ class PaymentController extends Controller
 
         if ($status === 'Complete') {
             $order->update([
-                'payment_status' => PaymentStatus::PAID->value,
+                'payment_status' => PaymentStatus::COMPLETED->value,
                 'status' => OrderStatus::PROCESSING->value,
                 'transaction_id' => $data['TransactionId'] ?? null,
                 'paid_at' => now(),

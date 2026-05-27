@@ -154,7 +154,7 @@
 
             @if ($product->specifications)
                 <div x-show="activeTab === 1" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-cloak>
-                    <x-product.specs-table :specs="collect($product->specifications)->map(fn($value, $key) => ['label' => $key, 'value' => $value])->values()->toArray()" />
+                    <x-product.specs-table :specs="$product->specifications" />
                 </div>
             @endif
 
@@ -177,7 +177,7 @@
                         <h3 class="font-bold text-gray-900 uppercase text-sm">What's in the Box</h3>
                         <ul class="list-disc pl-4 sm:pl-5 space-y-1">
                             @foreach ((array) $product->what_included as $item)
-                                <li>{{ $item }}</li>
+                                <li>{{ is_array($item) ? json_encode($item) : $item }}</li>
                             @endforeach
                         </ul>
                     </div>

@@ -1,4 +1,52 @@
 <x-layouts.app title="Checkout">
+    @push('scripts')
+        <script>
+            document.addEventListener('alpine:init', () => {
+                Alpine.data('cardForm', () => ({
+                    payment_method: 'card',
+                    cardNumber: '',
+                    cardName: '',
+                    cardExpiry: '',
+                    cardCvv: '',
+                    brand: null,
+                    
+                    get brands() {
+                        return {
+                            visa: { name: 'Visa', pattern: /^4/, icon: '{{ asset('images/payments/visa.svg') }}' },
+                            mastercard: { name: 'Mastercard', pattern: /^5[1-5]/, icon: '{{ asset('images/payments/mastercard.svg') }}' },
+                            amex: { name: 'American Express', pattern: /^3[47]/, icon: '' },
+                            discover: { name: 'Discover', pattern: /^6(?:011|5)/, icon: '' },
+                        };
+                    },
+                    
+                    get detectedBrand() {
+                        const num = this.cardNumber.replace(/\s/g, '');
+                        if (!num) return null;
+                        if (/^4/.test(num)) return { ...this.brands.visa };
+                        if (/^5[1-5]/.test(num)) return { ...this.brands.mastercard };
+                        if (/^3[47]/.test(num)) return { ...this.brands.amex };
+                        if (/^6(?:011|5)/.test(num)) return { ...this.brands.discover };
+                        return { name: 'Card', icon: '' };
+                    },
+                    
+                    get formattedNumber() {
+                        const num = this.cardNumber.replace(/\D/g, '').substring(0, 16);
+                        return num.replace(/(\d{4})(?=\d)/g, '$1 ');
+                    },
+                    
+                    get expiryFormatted() {
+                        const val = this.cardExpiry.replace(/\D/g, '').substring(0, 4);
+                        if (val.length > 2) return val.substring(0, 2) + ' / ' + val.substring(2);
+                        return val;
+                    },
+                    
+                    get cardTypeName() {
+                        return this.detectedBrand?.name || 'Card';
+                    }
+                }));
+            });
+        </script>
+    @endpush
     {{-- Breadcrumb --}}
     <div class="bg-gray-50 border-b border-gray-200 py-3">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -127,48 +175,198 @@
                         </div>
 
                         {{-- Payment Method --}}
-                        <div class="bg-white rounded-xl border border-gray-200 p-6">
+                        <div class="bg-white rounded-xl border border-gray-200 p-6"
+                             x-data="cardForm()"
+                             x-init="$watch('payment_method', val => { if (val !== 'card') { cardNumber = ''; cardName = ''; cardExpiry = ''; cardCvv = ''; } })">
                             <h2 class="text-lg font-semibold text-gray-900 mb-4">Payment Method</h2>
+
+                            {{-- Hidden input for the actual payment_method value --}}
+                            <input type="hidden" name="payment_method" x-model="payment_method">
+
                             <div class="space-y-3">
-                                <label class="flex items-start gap-3 p-4 rounded-lg border border-gray-200 hover:border-primary cursor-pointer transition-colors bg-white">
+                                {{-- Credit / Debit Card (on-site entry) --}}
+                                <div class="rounded-lg border transition-all duration-200"
+                                     :class="payment_method === 'card' ? 'border-primary ring-1 ring-primary' : 'border-gray-200'">
+                                    <label class="flex items-start gap-3 p-4 cursor-pointer">
+                                        <input type="radio"
+                                               value="card"
+                                               class="mt-1 text-primary focus:ring-primary"
+                                               x-model="payment_method">
+                                        <div class="flex-1">
+                                            <div class="flex items-center gap-2 flex-wrap">
+                                                <span class="text-sm font-medium text-gray-900">Credit / Debit Card</span>
+                                                <span class="text-xs px-2 py-0.5 bg-blue-100 text-blue-700 rounded font-medium">
+                                                    <span x-text="cardTypeName"></span>
+                                                </span>
+                                            </div>
+                                            <p class="text-xs text-gray-500 mt-1">Enter your card details below to pay securely</p>
+                                        </div>
+                                    </label>
+
+                                    <div x-show="payment_method === 'card'"
+                                         x-collapse.duration.200ms
+                                         class="px-4 pb-4 border-t border-gray-100 pt-4">
+                                        <div class="space-y-3">
+                                            {{-- Cardholder Name --}}
+                                            <div>
+                                                <label class="block text-xs font-medium text-gray-600 mb-1">Cardholder Name</label>
+                                                <input type="text"
+                                                       x-model="cardName"
+                                                       placeholder="John Doe"
+                                                       class="w-full px-3 py-2 text-sm bg-white border border-gray-300 rounded-lg placeholder:text-gray-400 focus:border-primary focus:ring-1 focus:ring-primary transition-all">
+                                            </div>
+
+                                            {{-- Card Number with brand detection --}}
+                                            <div>
+                                                <label class="block text-xs font-medium text-gray-600 mb-1">Card Number</label>
+                                                <div class="relative">
+                                                    <input type="text"
+                                                           x-model="formattedNumber"
+                                                           x-on:input="cardNumber = $event.target.value.replace(/\s/g, '')"
+                                                           placeholder="1234 5678 9012 3456"
+                                                           maxlength="19"
+                                                           class="w-full px-3 py-2 text-sm bg-white border border-gray-300 rounded-lg placeholder:text-gray-400 focus:border-primary focus:ring-1 focus:ring-primary transition-all pr-10 font-mono tracking-wider">
+                                                    <div class="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1">
+                                                        <template x-if="detectedBrand?.icon">
+                                                            <img :src="detectedBrand.icon" :alt="detectedBrand.name" class="h-5 object-contain">
+                                                        </template>
+                                                        <template x-if="detectedBrand && !detectedBrand.icon">
+                                                            <span class="text-[10px] font-bold text-gray-400 uppercase" x-text="detectedBrand.name.substring(0, 4)"></span>
+                                                        </template>
+                                                    </div>
+                                                </div>
+                                                <div class="flex items-center gap-2 mt-1.5">
+                                                    <img src="{{ asset('images/payments/visa.svg') }}" alt="Visa" class="h-4 object-contain opacity-40"
+                                                         :class="{ 'opacity-100': detectedBrand?.name === 'Visa', 'opacity-40': detectedBrand && detectedBrand.name !== 'Visa' }">
+                                                    <img src="{{ asset('images/payments/mastercard.svg') }}" alt="Mastercard" class="h-4 object-contain opacity-40"
+                                                         :class="{ 'opacity-100': detectedBrand?.name === 'Mastercard', 'opacity-40': detectedBrand && detectedBrand.name !== 'Mastercard' }">
+                                                    <span class="text-[10px] text-gray-400 opacity-40"
+                                                          :class="{ 'opacity-100 font-bold text-gray-700': detectedBrand?.name === 'American Express', 'opacity-40': detectedBrand && detectedBrand.name !== 'American Express' }">AMEX</span>
+                                                    <span class="text-[10px] text-gray-400 opacity-40"
+                                                          :class="{ 'opacity-100 font-bold text-gray-700': detectedBrand?.name === 'Discover', 'opacity-40': detectedBrand && detectedBrand.name !== 'Discover' }">DISC</span>
+                                                </div>
+                                            </div>
+
+                                            {{-- Expiry + CVV --}}
+                                            <div class="grid grid-cols-2 gap-3">
+                                                <div>
+                                                    <label class="block text-xs font-medium text-gray-600 mb-1">Expiry Date</label>
+                                                    <input type="text"
+                                                           x-model="expiryFormatted"
+                                                           x-on:input="cardExpiry = $event.target.value.replace(/\D/g, '')"
+                                                           placeholder="MM / YY"
+                                                           maxlength="7"
+                                                           class="w-full px-3 py-2 text-sm bg-white border border-gray-300 rounded-lg placeholder:text-gray-400 focus:border-primary focus:ring-1 focus:ring-primary transition-all font-mono">
+                                                </div>
+                                                <div>
+                                                    <label class="block text-xs font-medium text-gray-600 mb-1">CVV</label>
+                                                    <input type="text"
+                                                           x-model="cardCvv"
+                                                           x-on:input="cardCvv = $event.target.value.replace(/\D/g, '').substring(0, 4)"
+                                                           placeholder="123"
+                                                           maxlength="4"
+                                                           class="w-full px-3 py-2 text-sm bg-white border border-gray-300 rounded-lg placeholder:text-gray-400 focus:border-primary focus:ring-1 focus:ring-primary transition-all font-mono">
+                                                </div>
+                                            </div>
+
+                                            <p class="text-[10px] text-gray-400 flex items-center gap-1">
+                                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                                </svg>
+                                                Your card details are encrypted and processed securely
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{-- PayFast (redirect) --}}
+                                <label class="flex items-start gap-3 p-4 rounded-lg border transition-all duration-200 cursor-pointer bg-white"
+                                       :class="payment_method === 'payfast' ? 'border-primary ring-1 ring-primary' : 'border-gray-200 hover:border-gray-300'">
                                     <input type="radio"
-                                           name="payment_method"
                                            value="payfast"
                                            class="mt-1 text-primary focus:ring-primary"
-                                           {{ old('payment_method', 'payfast') === 'payfast' ? 'checked' : '' }}>
+                                           x-model="payment_method">
                                     <div class="flex-1">
                                         <div class="flex items-center gap-2">
-                                            <span class="text-sm font-medium text-gray-900">Credit / Debit Card</span>
-                                            <span class="text-xs px-2 py-0.5 bg-green-100 text-green-700 rounded font-medium">PayFast</span>
+                                            <span class="text-sm font-medium text-gray-900">PayFast</span>
+                                            <span class="text-xs px-2 py-0.5 bg-green-100 text-green-700 rounded font-medium">Redirect</span>
                                         </div>
-                                        <p class="text-xs text-gray-500 mt-1">Pay securely with your credit or debit card via PayFast</p>
+                                        <p class="text-xs text-gray-500 mt-1">Pay via credit card, debit card, or instant EFT through PayFast's secure portal</p>
+                                        <div class="flex items-center gap-2 mt-2">
+                                            <img src="{{ asset('images/payments/visa.svg') }}" alt="Visa" class="h-5 object-contain opacity-60">
+                                            <img src="{{ asset('images/payments/mastercard.svg') }}" alt="Mastercard" class="h-5 object-contain opacity-60">
+                                            <img src="{{ asset('images/payments/payfast.svg') }}" alt="PayFast" class="h-5 object-contain opacity-60">
+                                        </div>
                                     </div>
                                 </label>
 
-                                <label class="flex items-start gap-3 p-4 rounded-lg border border-gray-200 hover:border-primary cursor-pointer transition-colors bg-white">
+                                {{-- Ozow --}}
+                                <label class="flex items-start gap-3 p-4 rounded-lg border transition-all duration-200 cursor-pointer bg-white"
+                                       :class="payment_method === 'ozow' ? 'border-primary ring-1 ring-primary' : 'border-gray-200 hover:border-gray-300'">
                                     <input type="radio"
-                                           name="payment_method"
                                            value="ozow"
                                            class="mt-1 text-primary focus:ring-primary"
-                                           {{ old('payment_method') === 'ozow' ? 'checked' : '' }}>
+                                           x-model="payment_method">
                                     <div class="flex-1">
                                         <div class="flex items-center gap-2">
                                             <span class="text-sm font-medium text-gray-900">Instant EFT</span>
                                             <span class="text-xs px-2 py-0.5 bg-blue-100 text-blue-700 rounded font-medium">Ozow</span>
                                         </div>
-                                        <p class="text-xs text-gray-500 mt-1">Pay instantly from your bank account via Ozow</p>
+                                        <p class="text-xs text-gray-500 mt-1">Pay instantly from your bank account — no card details needed</p>
+                                        <div class="flex items-center gap-2 mt-2">
+                                            <img src="{{ asset('images/payments/ozow.svg') }}" alt="Ozow" class="h-5 object-contain opacity-60">
+                                        </div>
                                     </div>
                                 </label>
 
-                                <label class="flex items-start gap-3 p-4 rounded-lg border border-gray-200 hover:border-primary cursor-pointer transition-colors bg-white">
+                                {{-- PayJustNow --}}
+                                <label class="flex items-start gap-3 p-4 rounded-lg border transition-all duration-200 cursor-pointer bg-white"
+                                       :class="payment_method === 'payjustnow' ? 'border-primary ring-1 ring-primary' : 'border-gray-200 hover:border-gray-300'">
                                     <input type="radio"
-                                           name="payment_method"
+                                           value="payjustnow"
+                                           class="mt-1 text-primary focus:ring-primary"
+                                           x-model="payment_method">
+                                    <div class="flex-1">
+                                        <div class="flex items-center gap-2">
+                                            <span class="text-sm font-medium text-gray-900">Pay in 3 Installments</span>
+                                            <span class="text-xs px-2 py-0.5 bg-orange-100 text-orange-700 rounded font-medium">PayJustNow</span>
+                                        </div>
+                                        <p class="text-xs text-gray-500 mt-1">Split your payment into 3 interest-free installments of <strong>R{{ number_format($total / 3, 2) }}</strong></p>
+                                    </div>
+                                </label>
+
+                                {{-- Bank Transfer --}}
+                                <label class="flex items-start gap-3 p-4 rounded-lg border transition-all duration-200 cursor-pointer bg-white"
+                                       :class="payment_method === 'bank_transfer' ? 'border-primary ring-1 ring-primary' : 'border-gray-200 hover:border-gray-300'">
+                                    <input type="radio"
                                            value="bank_transfer"
                                            class="mt-1 text-primary focus:ring-primary"
-                                           {{ old('payment_method') === 'bank_transfer' ? 'checked' : '' }}>
+                                           x-model="payment_method">
                                     <div class="flex-1">
-                                        <span class="text-sm font-medium text-gray-900">EFT / Bank Transfer</span>
-                                        <p class="text-xs text-gray-500 mt-1">Manual EFT payment - order will be processed once payment clears</p>
+                                        <div class="flex items-center gap-2">
+                                            <span class="text-sm font-medium text-gray-900">EFT / Bank Transfer</span>
+                                            <span class="text-xs px-2 py-0.5 bg-purple-100 text-purple-700 rounded font-medium">Manual EFT</span>
+                                        </div>
+                                        <p class="text-xs text-gray-500 mt-1">Pay directly into our bank account. Order will be processed once payment clears.</p>
+                                        <div class="flex items-center gap-2 mt-2">
+                                            <img src="{{ asset('images/payments/eft.svg') }}" alt="EFT" class="h-5 object-contain opacity-60">
+                                        </div>
+                                    </div>
+                                </label>
+
+                                {{-- Cash on Delivery --}}
+                                <label class="flex items-start gap-3 p-4 rounded-lg border transition-all duration-200 cursor-pointer bg-white"
+                                       :class="payment_method === 'cod' ? 'border-primary ring-1 ring-primary' : 'border-gray-200 hover:border-gray-300'">
+                                    <input type="radio"
+                                           value="cod"
+                                           class="mt-1 text-primary focus:ring-primary"
+                                           x-model="payment_method">
+                                    <div class="flex-1">
+                                        <div class="flex items-center gap-2">
+                                            <span class="text-sm font-medium text-gray-900">Cash on Delivery</span>
+                                            <span class="text-xs px-2 py-0.5 bg-teal-100 text-teal-700 rounded font-medium">COD</span>
+                                        </div>
+                                        <p class="text-xs text-gray-500 mt-1">Pay with cash when your order is delivered. Available for select locations.</p>
                                     </div>
                                 </label>
                             </div>

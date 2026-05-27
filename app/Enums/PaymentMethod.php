@@ -4,6 +4,7 @@ namespace App\Enums;
 
 enum PaymentMethod: string
 {
+    case CARD = 'card';
     case PAYFAST = 'payfast';
     case OZOW = 'ozow';
     case PAYJUSTNOW = 'payjustnow';
@@ -13,6 +14,7 @@ enum PaymentMethod: string
     public function label(): string
     {
         return match ($this) {
+            self::CARD => 'Credit / Debit Card',
             self::PAYFAST => 'PayFast',
             self::OZOW => 'Ozow',
             self::PAYJUSTNOW => 'PayJustNow',
