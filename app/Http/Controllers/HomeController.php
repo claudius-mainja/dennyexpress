@@ -12,7 +12,7 @@ class HomeController extends Controller
         $featuredProducts = Product::with('primaryImage', 'categories')
             ->where('is_active', true)
             ->where(function ($q) {
-                $q->where('featured', true)->orWhere('is_featured', true);
+                $q->where('featured', true);
             })
             ->latest()
             ->limit(8)

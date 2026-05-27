@@ -9,7 +9,7 @@ Route::post('/__migrate', function (Request $request) {
     }
 
     try {
-        $result = Artisan::call('migrate:fresh', ['--force' => true]);
+        $result = Artisan::call('migrate', ['--force' => true]);
         return response()->json([
             'exit_code' => $result,
             'output' => Artisan::output(),
