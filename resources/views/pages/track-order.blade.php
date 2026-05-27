@@ -147,7 +147,7 @@
                                 <div>
                                     <p class="text-sm font-semibold text-gray-900">Need help with your order?</p>
                                     <p class="text-sm text-gray-600 mt-1">
-                                        Contact us on WhatsApp at <strong>074 355 1336</strong> or email <strong>info@dennyexpress.co.za</strong>
+                                        Contact us on WhatsApp at <strong>074 355 1336</strong> or email <strong>sales@dennyexpress.co.za</strong>
                                     </p>
                                 </div>
                             </div>

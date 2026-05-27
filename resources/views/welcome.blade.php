@@ -25,8 +25,8 @@
                         for Your Business
                     </h1>
                     
-                    <p class="text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed mb-6 sm:mb-8">
-                        Complete POS systems with touch terminals, receipt printers, barcode scanners, cash drawers, and scales. 
+                    <p class="text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed mb-4 sm:mb-8">
+                        Complete POS ( Point of Sale) systems with touch terminals, receipt printers, barcode scanners, cash drawers, and butcher weighing scales. 
                         <span class="text-white font-semibold">DennyPOS locally-installed software</span> — works offline, your data stays on-premises.
                     </p>
                     
@@ -53,12 +53,12 @@
                             <p class="text-xs sm:text-sm text-gray-400">Locally Installed</p>
                         </div>
                         <div class="text-center">
-                            <p class="text-lg sm:text-2xl font-black text-primary">18</p>
-                            <p class="text-xs sm:text-sm text-gray-400">Month Warranty</p>
+                            <p class="text-lg sm:text-2xl font-black text-primary">With</p>
+                            <p class="text-xs sm:text-sm text-gray-400">Monthly Warranty</p>
                         </div>
                         <div class="text-center">
-                            <p class="text-lg sm:text-2xl font-black text-primary">R5k+</p>
-                            <p class="text-xs sm:text-sm text-gray-400">Free Delivery</p>
+                            <p class="text-lg sm:text-2xl font-black text-primary">Delivery</p>
+                            <p class="text-xs sm:text-sm text-gray-400">Nationwide</p>
                         </div>
                     </div>
                 </div>
@@ -866,7 +866,7 @@
                         ],
                         [
                             'q' => 'How can I contact customer service?',
-                            'a' => 'You can reach us through our contact form on the website, by emailing info@dennyexpress.co.za, or by calling our customer service hotline at 074 355 1336. We also offer WhatsApp support for quick inquiries.'
+                            'a' => 'You can reach us through our contact form on the website, by emailing sales@dennyexpress.co.za, or by calling our customer service hotline at 074 355 1336. We also offer WhatsApp support for quick inquiries.'
                         ],
                         [
                             'q' => 'Is DennyPOS cloud-based or locally installed?',

@@ -77,7 +77,7 @@
                     <h2 class="text-lg sm:text-2xl font-black text-gray-900 uppercase mb-3 sm:mb-4">9. Contact Information</h2>
                     <p class="text-sm sm:text-base text-gray-600 leading-relaxed">If you have any questions about these terms, please contact us at:</p>
                     <ul class="mt-3 space-y-2 text-sm sm:text-base text-gray-600">
-                        <li><strong>Email:</strong> info@dennyexpress.co.za</li>
+                        <li><strong>Email:</strong> sales@dennyexpress.co.za</li>
                         <li><strong>Phone:</strong> 074 355 1336</li>
                         <li><strong>WhatsApp:</strong> 074 355 1336</li>
                     </ul>

@@ -1,0 +1,2 @@
+<br />
+<b>Warning</b>:  Constant LARAVEL_START already defined in <b>/var/task/user/public/index.php</b> on line <b>6</b><br />

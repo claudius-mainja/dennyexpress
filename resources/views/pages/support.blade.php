@@ -64,7 +64,7 @@
                     </div>
                     <h3 class="text-base sm:text-xl font-black text-gray-900 uppercase mb-2">Email Support</h3>
                     <p class="text-gray-600 text-sm sm:text-base mb-4">Send us an email and we'll get back to you promptly</p>
-                    <a href="mailto:info@dennyexpress.co.za" class="inline-flex items-center gap-2 text-primary hover:text-primary-dark font-bold text-sm">
+                    <a href="mailto:sales@dennyexpress.co.za" class="inline-flex items-center gap-2 text-primary hover:text-primary-dark font-bold text-sm">
                         Email Us <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                     </a>
                 </div>

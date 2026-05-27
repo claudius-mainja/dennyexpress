@@ -54,7 +54,7 @@
                             </div>
                             <div>
                                 <h3 class="font-bold text-gray-900 text-sm sm:text-base">Email</h3>
-                                <p class="text-gray-600 text-xs sm:text-sm mt-1">info@dennyexpress.co.za</p>
+                                <p class="text-gray-600 text-xs sm:text-sm mt-1">sales@dennyexpress.co.za</p>
                             </div>
                         </div>
 

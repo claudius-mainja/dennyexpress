@@ -27,7 +27,7 @@
 
             <div class="mt-8 bg-gray-50 rounded-xl p-4 text-sm text-gray-600">
                 <p class="font-medium mb-1">Need help?</p>
-                <p>Contact us at <a href="tel:0743551336" class="text-primary hover:underline">074 355 1336</a> or <a href="mailto:info@dennyexpress.co.za" class="text-primary hover:underline">info@dennyexpress.co.za</a></p>
+                <p>Contact us at <a href="tel:0743551336" class="text-primary hover:underline">074 355 1336</a> or <a href="mailto:sales@dennyexpress.co.za" class="text-primary hover:underline">sales@dennyexpress.co.za</a></p>
             </div>
         </div>
     </div>
