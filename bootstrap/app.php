@@ -15,10 +15,9 @@ return Application::configure(basePath: dirname(__DIR__))
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->render(function (\Throwable $e) {
-            $code = $e->getCode() >= 100 && $e->getCode() < 600 ? (int) $e->getCode() : 500;
             return response(
                 "Error: {$e->getMessage()}\nFile: {$e->getFile()}:{$e->getLine()}\nTrace:\n{$e->getTraceAsString()}",
-                $code,
+                500,
                 ['Content-Type' => 'text/plain']
             );
         });
