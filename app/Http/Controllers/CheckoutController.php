@@ -27,7 +27,7 @@ class CheckoutController extends Controller
         $cart = $this->cart->toArray();
 
         if ($cart['count'] === 0) {
-            return redirect()->route('cart')->with('info', 'Your cart is empty.');
+            return redirect()->route('cart.index')->with('info', 'Your cart is empty.');
         }
 
         $paymentMethods = PaymentMethod::cases();
@@ -40,7 +40,7 @@ class CheckoutController extends Controller
         $cart = $this->cart->toArray();
 
         if ($cart['count'] === 0) {
-            return redirect()->route('cart')->with('error', 'Your cart is empty.');
+            return redirect()->route('cart.index')->with('error', 'Your cart is empty.');
         }
 
         $billing = [
@@ -54,17 +54,7 @@ class CheckoutController extends Controller
             'country' => $request->billing_country ?? 'South Africa',
         ];
 
-        $useShipping = !$request->boolean('shipping_same');
-        $shipping = $useShipping ? [
-            'name' => $request->shipping_name,
-            'email' => $request->shipping_email,
-            'phone' => $request->shipping_phone,
-            'address' => $request->shipping_address,
-            'city' => $request->shipping_city,
-            'state' => $request->shipping_state,
-            'zip' => $request->shipping_zip,
-            'country' => $request->shipping_country ?? 'South Africa',
-        ] : $billing;
+        $shipping = $billing;
 
         try {
             $order = $this->orderService->createOrderFromCart(

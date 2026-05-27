@@ -33,80 +33,70 @@
             <form action="{{ route('checkout.store') }}" method="POST">
                 @csrf
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    {{-- Checkout Form --}}
                     <div class="lg:col-span-2 space-y-6">
-                        {{-- Contact Information --}}
                         <div class="bg-white rounded-xl border border-gray-200 p-6">
                             <h2 class="text-lg font-semibold text-gray-900 mb-4">Contact Information</h2>
                             <div class="space-y-4">
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-1.5">First Name *</label>
-                                        <input type="text" 
-                                               name="first_name" 
-                                               required
-                                               class="w-full px-4 py-2.5 text-sm bg-white border border-gray-300 rounded-lg placeholder:text-gray-400 focus:border-primary focus:ring-1 focus:ring-primary hover:border-gray-400 transition-all"
-                                               placeholder="John">
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-1.5">Last Name *</label>
-                                        <input type="text" 
-                                               name="last_name" 
-                                               required
-                                               class="w-full px-4 py-2.5 text-sm bg-white border border-gray-300 rounded-lg placeholder:text-gray-400 focus:border-primary focus:ring-1 focus:ring-primary hover:border-gray-400 transition-all"
-                                               placeholder="Doe">
-                                    </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1.5">Full Name *</label>
+                                    <input type="text"
+                                           name="billing_name"
+                                           value="{{ old('billing_name') }}"
+                                           required
+                                           class="w-full px-4 py-2.5 text-sm bg-white border border-gray-300 rounded-lg placeholder:text-gray-400 focus:border-primary focus:ring-1 focus:ring-primary hover:border-gray-400 transition-all"
+                                           placeholder="John Doe">
+                                    <x-input-error :messages="$errors->get('billing_name')" class="mt-1" />
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1.5">Email *</label>
-                                    <input type="email" 
-                                           name="email" 
+                                    <input type="email"
+                                           name="billing_email"
+                                           value="{{ old('billing_email') }}"
                                            required
                                            class="w-full px-4 py-2.5 text-sm bg-white border border-gray-300 rounded-lg placeholder:text-gray-400 focus:border-primary focus:ring-1 focus:ring-primary hover:border-gray-400 transition-all"
                                            placeholder="john@example.com">
+                                    <x-input-error :messages="$errors->get('billing_email')" class="mt-1" />
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1.5">Phone *</label>
-                                    <input type="tel" 
-                                           name="phone" 
+                                    <input type="tel"
+                                           name="billing_phone"
+                                           value="{{ old('billing_phone') }}"
                                            required
                                            class="w-full px-4 py-2.5 text-sm bg-white border border-gray-300 rounded-lg placeholder:text-gray-400 focus:border-primary focus:ring-1 focus:ring-primary hover:border-gray-400 transition-all"
                                            placeholder="+27 11 234 5678">
+                                    <x-input-error :messages="$errors->get('billing_phone')" class="mt-1" />
                                 </div>
                             </div>
                         </div>
 
-                        {{-- Shipping Address --}}
                         <div class="bg-white rounded-xl border border-gray-200 p-6">
-                            <h2 class="text-lg font-semibold text-gray-900 mb-4">Shipping Address</h2>
+                            <h2 class="text-lg font-semibold text-gray-900 mb-4">Billing Address</h2>
                             <div class="space-y-4">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1.5">Address *</label>
-                                    <input type="text" 
-                                           name="address_line1" 
+                                    <input type="text"
+                                           name="billing_address"
+                                           value="{{ old('billing_address') }}"
                                            required
                                            class="w-full px-4 py-2.5 text-sm bg-white border border-gray-300 rounded-lg placeholder:text-gray-400 focus:border-primary focus:ring-1 focus:ring-primary hover:border-gray-400 transition-all"
                                            placeholder="Street address">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-1.5">Address Line 2</label>
-                                    <input type="text" 
-                                           name="address_line2"
-                                           class="w-full px-4 py-2.5 text-sm bg-white border border-gray-300 rounded-lg placeholder:text-gray-400 focus:border-primary focus:ring-1 focus:ring-primary hover:border-gray-400 transition-all"
-                                           placeholder="Suite, unit, building (optional)">
+                                    <x-input-error :messages="$errors->get('billing_address')" class="mt-1" />
                                 </div>
                                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                                     <div>
                                         <label class="block text-sm font-medium text-gray-700 mb-1.5">City *</label>
-                                        <input type="text" 
-                                               name="city" 
+                                        <input type="text"
+                                               name="billing_city"
+                                               value="{{ old('billing_city') }}"
                                                required
                                                class="w-full px-4 py-2.5 text-sm bg-white border border-gray-300 rounded-lg placeholder:text-gray-400 focus:border-primary focus:ring-1 focus:ring-primary hover:border-gray-400 transition-all"
                                                placeholder="Johannesburg">
+                                        <x-input-error :messages="$errors->get('billing_city')" class="mt-1" />
                                     </div>
                                     <div>
                                         <label class="block text-sm font-medium text-gray-700 mb-1.5">Province *</label>
-                                        <select name="province" 
+                                        <select name="billing_state"
                                                 required
                                                 class="w-full px-4 py-2.5 text-sm bg-white border border-gray-300 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary hover:border-gray-400 transition-all">
                                             <option value="">Select Province</option>
@@ -120,14 +110,17 @@
                                             <option value="North West">North West</option>
                                             <option value="Northern Cape">Northern Cape</option>
                                         </select>
+                                        <x-input-error :messages="$errors->get('billing_state')" class="mt-1" />
                                     </div>
                                     <div>
                                         <label class="block text-sm font-medium text-gray-700 mb-1.5">Postcode *</label>
-                                        <input type="text" 
-                                               name="postal_code" 
+                                        <input type="text"
+                                               name="billing_zip"
+                                               value="{{ old('billing_zip') }}"
                                                required
                                                class="w-full px-4 py-2.5 text-sm bg-white border border-gray-300 rounded-lg placeholder:text-gray-400 focus:border-primary focus:ring-1 focus:ring-primary hover:border-gray-400 transition-all"
                                                placeholder="2000">
+                                        <x-input-error :messages="$errors->get('billing_zip')" class="mt-1" />
                                     </div>
                                 </div>
                             </div>
@@ -138,11 +131,11 @@
                             <h2 class="text-lg font-semibold text-gray-900 mb-4">Payment Method</h2>
                             <div class="space-y-3">
                                 <label class="flex items-start gap-3 p-4 rounded-lg border border-gray-200 hover:border-primary cursor-pointer transition-colors bg-white">
-                                    <input type="radio" 
-                                           name="payment_method" 
-                                           value="payfast" 
+                                    <input type="radio"
+                                           name="payment_method"
+                                           value="payfast"
                                            class="mt-1 text-primary focus:ring-primary"
-                                           checked>
+                                           {{ old('payment_method', 'payfast') === 'payfast' ? 'checked' : '' }}>
                                     <div class="flex-1">
                                         <div class="flex items-center gap-2">
                                             <span class="text-sm font-medium text-gray-900">Credit / Debit Card</span>
@@ -151,12 +144,13 @@
                                         <p class="text-xs text-gray-500 mt-1">Pay securely with your credit or debit card via PayFast</p>
                                     </div>
                                 </label>
-                                
+
                                 <label class="flex items-start gap-3 p-4 rounded-lg border border-gray-200 hover:border-primary cursor-pointer transition-colors bg-white">
-                                    <input type="radio" 
-                                           name="payment_method" 
-                                           value="ozow" 
-                                           class="mt-1 text-primary focus:ring-primary">
+                                    <input type="radio"
+                                           name="payment_method"
+                                           value="ozow"
+                                           class="mt-1 text-primary focus:ring-primary"
+                                           {{ old('payment_method') === 'ozow' ? 'checked' : '' }}>
                                     <div class="flex-1">
                                         <div class="flex items-center gap-2">
                                             <span class="text-sm font-medium text-gray-900">Instant EFT</span>
@@ -165,18 +159,29 @@
                                         <p class="text-xs text-gray-500 mt-1">Pay instantly from your bank account via Ozow</p>
                                     </div>
                                 </label>
-                                
+
                                 <label class="flex items-start gap-3 p-4 rounded-lg border border-gray-200 hover:border-primary cursor-pointer transition-colors bg-white">
-                                    <input type="radio" 
-                                           name="payment_method" 
-                                           value="bank_transfer" 
-                                           class="mt-1 text-primary focus:ring-primary">
+                                    <input type="radio"
+                                           name="payment_method"
+                                           value="bank_transfer"
+                                           class="mt-1 text-primary focus:ring-primary"
+                                           {{ old('payment_method') === 'bank_transfer' ? 'checked' : '' }}>
                                     <div class="flex-1">
                                         <span class="text-sm font-medium text-gray-900">EFT / Bank Transfer</span>
                                         <p class="text-xs text-gray-500 mt-1">Manual EFT payment - order will be processed once payment clears</p>
                                     </div>
                                 </label>
                             </div>
+                            <x-input-error :messages="$errors->get('payment_method')" class="mt-3" />
+                        </div>
+
+                        {{-- Order Notes --}}
+                        <div class="bg-white rounded-xl border border-gray-200 p-6">
+                            <h2 class="text-lg font-semibold text-gray-900 mb-4">Order Notes</h2>
+                            <textarea name="notes"
+                                      rows="3"
+                                      class="w-full px-4 py-2.5 text-sm bg-white border border-gray-300 rounded-lg placeholder:text-gray-400 focus:border-primary focus:ring-1 focus:ring-primary hover:border-gray-400 transition-all"
+                                      placeholder="Special instructions or notes for your order (optional)">{{ old('notes') }}</textarea>
                         </div>
 
                         <div class="flex flex-col sm:flex-row gap-4">

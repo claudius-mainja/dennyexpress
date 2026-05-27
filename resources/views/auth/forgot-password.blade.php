@@ -1,25 +1,28 @@
 <x-layouts.guest>
     <div class="p-6">
-        <h1 class="text-xl font-bold text-primary-navy mb-1">Reset Password</h1>
-        <p class="text-sm text-medium-gray mb-6">Forgot your password? No problem. Just let us know your email address and we will email you a password reset link.</p>
+        <h1 class="text-xl font-bold text-gray-900 mb-1">Forgot Password</h1>
+        <p class="text-sm text-gray-500 mb-6">Enter your email and we'll send you a reset link</p>
 
-        @session('status')
-            <div class="mb-4 text-sm text-success bg-success/10 p-3 rounded-lg">{{ $value }}</div>
-        @endsession
+        @if (session('status'))
+            <div class="mb-4 text-sm font-medium text-primary bg-primary/5 border border-primary/10 rounded-lg px-4 py-3">
+                {{ session('status') }}
+            </div>
+        @endif
 
         <form method="POST" action="{{ route('password.email') }}" class="space-y-4">
             @csrf
 
             <div>
-                <label for="email" class="block text-sm font-medium text-dark-charcoal mb-1">Email</label>
-                <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus class="input-field" placeholder="your@email.com">
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus placeholder="your@email.com"
+                       class="w-full px-4 py-2.5 text-sm bg-white border border-gray-300 rounded-lg placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20 hover:border-gray-400 transition-all">
                 <x-input-error :messages="$errors->get('email')" class="mt-1" />
             </div>
 
             <button type="submit" class="btn-primary w-full">Email Password Reset Link</button>
 
-            <p class="text-sm text-medium-gray text-center">
-                <a href="{{ route('login') }}" class="text-primary-blue hover:text-accent-blue font-medium">Back to Sign In</a>
+            <p class="text-sm text-gray-500 text-center">
+                <a href="{{ route('login') }}" class="text-primary hover:text-primary-dark font-semibold">Back to Sign In</a>
             </p>
         </form>
     </div>

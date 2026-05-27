@@ -119,7 +119,7 @@
                     @csrf
                     <input type="hidden" name="product_id" value="{{ $id }}">
                     <input type="hidden" name="quantity" value="1">
-                    <button type="submit" class="w-full inline-flex items-center justify-center gap-2 px-4 py-3 bg-primary text-white text-sm font-semibold rounded-xl hover:bg-primary-dark hover:shadow-lg hover:shadow-primary/25 transition-all duration-300">
+                    <button type="submit" class="w-full inline-flex items-center justify-center gap-2 px-4 py-3 bg-primary text-white text-sm font-bold rounded-xl hover:bg-primary-dark hover:shadow-lg hover:shadow-primary/25 active:scale-[0.97] transition-all duration-300">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                         </svg>

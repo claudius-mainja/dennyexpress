@@ -1,65 +1,64 @@
 <x-layouts.app title="Denny Express | POS Systems & IT Hardware">
-    {{-- Hero Section - Reduced height, max 85vh, dark gradient --}}
-    <section class="relative min-h-[70vh] max-h-[85vh] flex items-center overflow-hidden py-12" style="background: linear-gradient(135deg, #020617 0%, #1e293b 40%, #334155 70%, #1e293b 100%);">
+    {{-- Hero Section - Full responsive height --}}
+    <section class="relative min-h-[80dvh] flex items-center overflow-hidden py-8 sm:py-12 lg:py-0" style="background: linear-gradient(135deg, #020617 0%, #1e293b 40%, #334155 70%, #1e293b 100%);">
         <div class="absolute inset-0 opacity-30">
-            <div class="absolute top-0 right-0 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
-            <div class="absolute bottom-0 left-0 w-72 h-72 bg-accent rounded-full blur-3xl"></div>
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl"></div>
+            <div class="absolute top-0 right-0 w-48 sm:w-96 h-48 sm:h-96 bg-primary rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-48 sm:w-72 h-48 sm:h-72 bg-accent rounded-full blur-3xl"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-primary/5 rounded-full blur-3xl"></div>
         </div>
         
-        {{-- Grid Pattern Overlay --}}
         <div class="absolute inset-0 opacity-10">
             <div class="w-full h-full" style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 50px 50px;"></div>
         </div>
         
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative py-12 md:py-0">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                 <div class="max-w-xl">
-                     <div class="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full mb-2 mt-6">
-                         <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
-                         <span class="text-sm font-medium text-white">Denny Express Group Brings:</span>
+        <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative py-6 md:py-0">
+            <div class="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
+                 <div class="max-w-xl w-full">
+                     <div class="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full mb-2 mt-2 sm:mt-6">
+                         <span class="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-accent rounded-full animate-pulse"></span>
+                         <span class="text-xs sm:text-sm font-medium text-white">Denny Express Group Brings:</span>
                      </div>
                     
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6 tracking-tight uppercase">
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-white mb-4 sm:mb-6 tracking-tight uppercase leading-tight">
                         Premium
                         <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-accent"> POS Hardware</span>
                         for Your Business
                     </h1>
                     
-                    <p class="text-gray-300 text-lg leading-relaxed mb-8">
+                    <p class="text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed mb-6 sm:mb-8">
                         Complete POS systems with touch terminals, receipt printers, barcode scanners, cash drawers, and scales. 
                         <span class="text-white font-semibold">DennyPOS locally-installed software</span> — works offline, your data stays on-premises.
                     </p>
                     
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="{{ route('shop.index') }}?category=pos-systems" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-primary to-primary-light text-white text-sm font-bold rounded-xl hover:from-primary-dark hover:to-primary transition-all duration-300 shadow-lg shadow-primary/25">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                        <a href="{{ route('shop.index') }}?category=pos-systems" class="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-primary to-primary-light text-white text-xs sm:text-sm font-bold rounded-xl hover:from-primary-dark hover:to-primary transition-all duration-300 shadow-lg shadow-primary/25">
+                            <svg class="w-4 sm:w-5 h-4 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                             </svg>
                             Shop POS Systems
                         </a>
                         <a href="https://wa.me/27743551336?text=Hi%21%20I%27m%20interested%20in%20POS%20systems" 
                            target="_blank" 
-                           class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/20 text-white text-sm font-semibold rounded-xl hover:bg-white/10 hover:border-white/30 transition-all duration-300">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                           class="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-white/5 backdrop-blur-sm border border-white/20 text-white text-xs sm:text-sm font-semibold rounded-xl hover:bg-white/10 hover:border-white/30 transition-all duration-300">
+                            <svg class="w-4 sm:w-5 h-4 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.012-.172-.249-.018-.384.13-.506.135-.11.3-.286.449-.429.147-.143.196-.249.296-.415.099-.166.05-.305-.025-.43-.074-.124-.67-1.61-.918-2.205-.242-.578-.489-.498-.67-.506-.172-.009-.37-.013-.568-.013-.197 0-.518.074-.79.371-.273.297-1.04 1.014-1.04 2.467 0 1.453 1.065 2.851 1.213 3.05.149.199 2.092 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                             </svg>
                             Get Free Quote
                         </a>
                     </div>
                     
-                    <div class="grid grid-cols-3 gap-4 mb-40 pt-4 border-t border-white/10">
+                    <div class="grid grid-cols-3 gap-3 sm:gap-4 mt-8 sm:mt-12 pt-4 border-t border-white/10">
                         <div class="text-center">
-                            <p class="text-2xl font-black text-primary">DennyPOS</p>
-                            <p class="text-sm text-gray-400">Locally Installed</p>
+                            <p class="text-lg sm:text-2xl font-black text-primary">DennyPOS</p>
+                            <p class="text-xs sm:text-sm text-gray-400">Locally Installed</p>
                         </div>
                         <div class="text-center">
-                            <p class="text-2xl font-black text-primary">18</p>
-                            <p class="text-sm text-gray-400">Month Warranty</p>
+                            <p class="text-lg sm:text-2xl font-black text-primary">18</p>
+                            <p class="text-xs sm:text-sm text-gray-400">Month Warranty</p>
                         </div>
                         <div class="text-center">
-                            <p class="text-2xl font-black text-primary">R5k+</p>
-                            <p class="text-sm text-gray-400">Free Delivery</p>
+                            <p class="text-lg sm:text-2xl font-black text-primary">R5k+</p>
+                            <p class="text-xs sm:text-sm text-gray-400">Free Delivery</p>
                         </div>
                     </div>
                 </div>
@@ -150,7 +149,7 @@
     @endif
 
     {{-- Search Section - Live Search --}}
-    <section class="py-8 border-b border-white/5" style="background: linear-gradient(135deg, #020617 0%, #1e293b 50%, #020617 100%);">
+    <section class="py-6 sm:py-8 border-b border-white/5" style="background: linear-gradient(135deg, #020617 0%, #1e293b 50%, #020617 100%);">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div x-data="{ 
                 search: '', 
@@ -262,52 +261,52 @@
     </section>
 
     {{-- Trust Bar - Dark Background --}}
-    <section class="py-8 border-b border-white/5" style="background: linear-gradient(135deg, #020617 0%, #1e293b 50%, #020617 100%);">
+    <section class="py-6 sm:py-8 border-b border-white/5" style="background: linear-gradient(135deg, #020617 0%, #1e293b 50%, #020617 100%);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="flex items-center justify-center gap-3 p-4 bg-white/5 rounded-2xl border border-white/5">
-                    <div class="w-10 h-10 bg-primary/20 rounded-xl flex items-center justify-center">
-                        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
+                <div class="flex items-center gap-3 p-3 sm:p-4 bg-white/5 rounded-2xl border border-white/5">
+                    <div class="w-8 sm:w-10 h-8 sm:h-10 bg-primary/20 rounded-xl flex items-center justify-center shrink-0">
+                        <svg class="w-4 sm:w-5 h-4 sm:h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                         </svg>
                     </div>
-                    <div>
-                        <p class="text-sm font-bold text-white">Free Delivery</p>
-                        <p class="text-xs text-gray-500">Orders over R5,000</p>
+                    <div class="min-w-0">
+                        <p class="text-xs sm:text-sm font-bold text-white truncate">Free Delivery</p>
+                        <p class="text-[10px] sm:text-xs text-gray-500 truncate">Orders over R5,000</p>
                     </div>
                 </div>
-                <div class="flex items-center justify-center gap-3 p-4 bg-white/5 rounded-2xl border border-white/5">
-                    <div class="w-10 h-10 bg-accent/20 rounded-xl flex items-center justify-center">
-                        <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="flex items-center gap-3 p-3 sm:p-4 bg-white/5 rounded-2xl border border-white/5">
+                    <div class="w-8 sm:w-10 h-8 sm:h-10 bg-accent/20 rounded-xl flex items-center justify-center shrink-0">
+                        <svg class="w-4 sm:w-5 h-4 sm:h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                         </svg>
                     </div>
-                    <div>
-                        <p class="text-sm font-bold text-white">18 Month Warranty</p>
-                        <p class="text-xs text-gray-500">On all products</p>
+                    <div class="min-w-0">
+                        <p class="text-xs sm:text-sm font-bold text-white truncate">18 Month Warranty</p>
+                        <p class="text-[10px] sm:text-xs text-gray-500 truncate">On all products</p>
                     </div>
                 </div>
-                <div class="flex items-center justify-center gap-3 p-4 bg-white/5 rounded-2xl border border-white/5">
-                    <div class="w-10 h-10 bg-primary/20 rounded-xl flex items-center justify-center">
-                        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="flex items-center gap-3 p-3 sm:p-4 bg-white/5 rounded-2xl border border-white/5">
+                    <div class="w-8 sm:w-10 h-8 sm:h-10 bg-primary/20 rounded-xl flex items-center justify-center shrink-0">
+                        <svg class="w-4 sm:w-5 h-4 sm:h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                         </svg>
                     </div>
-                    <div>
-                        <p class="text-sm font-bold text-white">Free POS Software</p>
-                        <p class="text-xs text-gray-500">Lifetime license</p>
+                    <div class="min-w-0">
+                        <p class="text-xs sm:text-sm font-bold text-white truncate">Free POS Software</p>
+                        <p class="text-[10px] sm:text-xs text-gray-500 truncate">Lifetime license</p>
                     </div>
                 </div>
-                <div class="flex items-center justify-center gap-3 p-4 bg-white/5 rounded-2xl border border-white/5">
-                    <div class="w-10 h-10 bg-accent/20 rounded-xl flex items-center justify-center">
-                        <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="flex items-center gap-3 p-3 sm:p-4 bg-white/5 rounded-2xl border border-white/5">
+                    <div class="w-8 sm:w-10 h-8 sm:h-10 bg-accent/20 rounded-xl flex items-center justify-center shrink-0">
+                        <svg class="w-4 sm:w-5 h-4 sm:h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
                     </div>
-                    <div>
-                        <p class="text-sm font-bold text-white">Nationwide Delivery</p>
-                        <p class="text-xs text-gray-500">All over SA</p>
+                    <div class="min-w-0">
+                        <p class="text-xs sm:text-sm font-bold text-white truncate">Nationwide Delivery</p>
+                        <p class="text-[10px] sm:text-xs text-gray-500 truncate">All over SA</p>
                     </div>
                 </div>
             </div>
@@ -316,22 +315,22 @@
 
     {{-- Popular Products - Slate-200 Light Background --}}
     @if ($featuredProducts && $featuredProducts->count() > 0)
-    <section class="py-16 bg-slate-200">
+    <section class="py-10 sm:py-16 bg-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-10 gap-4">
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-6 sm:mb-10 gap-4">
                  <div>
-                     <span class="text-xs font-bold text-primary uppercase tracking-widest">OUR PRODUCTS</span>
-                     <h2 class="text-3xl font-black text-gray-900 mt-2 uppercase">Popular POS Systems</h2>
+                     <span class="text-[10px] sm:text-xs font-bold text-primary uppercase tracking-widest">OUR PRODUCTS</span>
+                     <h2 class="text-2xl sm:text-3xl font-black text-gray-900 mt-1 sm:mt-2 uppercase">Popular POS Systems</h2>
                  </div>
-                <a href="{{ route('shop.index') }}" class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white text-sm font-bold rounded-xl hover:bg-primary-dark transition-colors">
+                <a href="{{ route('shop.index') }}" class="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-primary text-white text-xs sm:text-sm font-bold rounded-xl hover:bg-primary-dark transition-colors">
                     View All Products
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-3 sm:w-4 h-3 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
                 </a>
             </div>
             
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4 md:gap-6">
                 @foreach ($featuredProducts as $product)
                     <x-product.card :product="$product" />
                 @endforeach
@@ -341,7 +340,7 @@
     @endif
 
     {{-- POS Software Section with Animated Graphs --}}
-    <section class="py-20 relative overflow-hidden" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #0f172a 100%);">
+    <section class="py-12 sm:py-20 relative overflow-hidden" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #0f172a 100%);">
         <div class="absolute inset-0">
             <div class="absolute inset-0 opacity-5">
                 <div class="w-full h-full" style="background-image: radial-gradient(circle at 2px 2px, rgba(101, 163, 13, 0.3) 1px, transparent 0); background-size: 30px 30px;"></div>
@@ -520,19 +519,19 @@
     </section>
 
     {{-- Industries We Serve - Lime/Green Background --}}
-    <section class="py-16 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent border-y border-primary/20">
+    <section class="py-10 sm:py-16 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent border-y border-primary/20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-             <div class="text-center mb-12">
-                 <span class="text-xs font-bold text-primary uppercase tracking-widest">INDUSTRIES</span>
-                 <h2 class="text-3xl font-black text-gray-900 mt-2 uppercase">Industries We Serve</h2>
-                 <p class="text-gray-600 mt-4 max-w-2xl mx-auto font-medium">
+             <div class="text-center mb-8 sm:mb-12">
+                 <span class="text-[10px] sm:text-xs font-bold text-primary uppercase tracking-widest">INDUSTRIES</span>
+                 <h2 class="text-2xl sm:text-3xl font-black text-gray-900 mt-1 sm:mt-2 uppercase">Industries We Serve</h2>
+                 <p class="text-gray-600 mt-2 sm:mt-4 max-w-2xl mx-auto text-sm sm:text-base font-medium">
                      Our POS solutions are tailored for various business types across South Africa
                  </p>
              </div>
             
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-                <div class="group bg-white rounded-2xl p-6 text-center hover:shadow-lg transition-all duration-300 border border-primary/10 hover:border-primary/50">
-                    <div class="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/30 transition-colors">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+                <div class="group bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center hover:shadow-lg transition-all duration-300 border border-primary/10 hover:border-primary/50">
+                    <div class="w-12 sm:w-16 h-12 sm:h-16 bg-primary/20 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 group-hover:bg-primary/30 transition-colors">
                         <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                         </svg>
@@ -589,80 +588,111 @@
      </section>
 
     {{-- Why Choose Us Section --}}
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="text-xs font-black text-primary uppercase tracking-widest">WHY DENNY EXPRESS</span>
-                <h2 class="text-3xl md:text-4xl font-black text-gray-900 mt-3 uppercase">Why Businesses Choose Us</h2>
-                <p class="text-gray-600 mt-4 max-w-2xl mx-auto font-medium">
+    <section class="relative py-16 sm:py-24 overflow-hidden bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950">
+        <div class="absolute inset-0 opacity-[0.04]" style="background-image: repeating-linear-gradient(0deg, transparent, transparent 50px, rgba(255,255,255,.12) 50px, rgba(255,255,255,.12) 51px), repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(255,255,255,.12) 50px, rgba(255,255,255,.12) 51px);"></div>
+        <div class="absolute top-20 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[150px]"></div>
+        <div class="absolute bottom-20 right-1/4 w-80 h-80 bg-accent/5 rounded-full blur-[120px]"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12 sm:mb-16">
+                <div class="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 rounded-full border border-primary/20 text-primary text-xs font-semibold tracking-wider uppercase mb-4">
+                    <span class="w-1.5 h-1.5 bg-primary rounded-full animate-pulse"></span>
+                    Why Denny Express
+                </div>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-white uppercase tracking-tight">
+                    Built Different.<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Built for You.</span>
+                </h2>
+                <p class="text-gray-400 mt-4 max-w-2xl mx-auto text-sm sm:text-base font-medium">
                     We're not just another hardware supplier. We're your technology partner for long-term success.
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                @php
-                    $whyChoose = [
-                        [
-                            'icon' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />',
-                            'title' => 'On-Premises Data Control',
-                            'desc' => 'DennyPOS keeps your data local — no cloud dependency, no downtime when internet fails, complete ownership of your business information.',
-                            'color' => 'primary'
-                        ],
-                        [
-                            'icon' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />',
-                            'title' => 'Same-Day Support',
-                            'desc' => 'Our certified engineers respond within hours, not days. Remote support and on-site installation available in major metros across South Africa.',
-                            'color' => 'accent'
-                        ],
-                        [
-                            'icon' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />',
-                            'title' => 'Local R&D & Customization',
-                            'desc' => 'DennyPOS is developed in South Africa for South African businesses. We understand VAT, UIF, local regulations — and we can customize features for your needs.',
-                            'color' => 'primary'
-                        ],
-                        [
-                            'icon' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />',
-                            'title' => 'No Recurring Fees',
-                            'desc' => 'One-time purchase, lifetime use. No monthly subscriptions, no per-register fees, no hidden charges. Your investment keeps working for you forever.',
-                            'color' => 'accent'
-                        ]
-                    ];
-                @endphp
-
-                @foreach ($whyChoose as $item)
-                <div class="group relative bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300">
-                    <div class="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-br {{ $item['color'] === 'primary' ? 'from-primary to-primary-light' : 'from-accent to-accent-light' }} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            {!! $item['icon'] !!}
-                        </svg>
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-primary via-accent to-primary rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
+                    <div class="relative bg-gray-800/80 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700/50">
+                        <div class="absolute top-4 left-4 flex items-center gap-1.5">
+                            <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                            <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                            <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                        </div>
+                        <img src="{{ asset('images/whyus.png') }}"
+                             alt="Why Denny Express"
+                             class="w-full h-auto object-cover"
+                             loading="lazy"
+                             onerror="this.parentElement.innerHTML = '<div class=\'flex items-center justify-center h-96 text-gray-500\'><svg class=\'w-16 h-16 mb-4 opacity-50\' fill=\'none\' stroke=\'currentColor\' viewBox=\'0 0 24 24\'><path stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'1.5\' d=\'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z\' /></svg><p class=\'text-sm\'>Image unavailable</p></div>'">
                     </div>
-                    
-                    <div class="mt-2">
-                        <h3 class="text-lg font-black text-gray-900 uppercase mb-3">
-                            {{ $item['title'] }}
-                        </h3>
-                        <p class="text-gray-600 font-medium leading-relaxed">
-                            {{ $item['desc'] }}
-                        </p>
+                    <div class="absolute -bottom-4 -right-4 w-24 h-24 border border-primary/30 rounded-full flex items-center justify-center animate-pulse hidden lg:flex">
+                        <div class="w-16 h-16 border border-accent/40 rounded-full flex items-center justify-center">
+                            <div class="w-8 h-8 bg-primary/20 rounded-full"></div>
+                        </div>
                     </div>
                 </div>
-                @endforeach
+
+                <div class="space-y-5">
+                    @php
+                        $whyChoose = [
+                            [
+                                'icon' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />',
+                                'title' => 'On-Premises Data Control',
+                                'desc' => 'DennyPOS keeps your data local — no cloud dependency, no downtime when internet fails, complete ownership of your business information.',
+                            ],
+                            [
+                                'icon' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />',
+                                'title' => 'Same-Day Support',
+                                'desc' => 'Our certified engineers respond within hours, not days. Remote support and on-site installation available in major metros across South Africa.',
+                            ],
+                            [
+                                'icon' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />',
+                                'title' => 'Local R&D & Customization',
+                                'desc' => 'DennyPOS is developed in South Africa for South African businesses. We understand VAT, UIF, local regulations — and we can customize features for your needs.',
+                            ],
+                            [
+                                'icon' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />',
+                                'title' => 'No Recurring Fees',
+                                'desc' => 'One-time purchase, lifetime use. No monthly subscriptions, no per-register fees, no hidden charges. Your investment keeps working for you forever.',
+                            ],
+                        ];
+                    @endphp
+
+                    @foreach ($whyChoose as $item)
+                    <div class="group relative bg-gray-800/40 backdrop-blur-sm rounded-xl p-5 border border-gray-700/50 hover:border-primary/40 transition-all duration-300 cursor-default">
+                        <div class="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="relative flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/20 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-primary/20 transition-all duration-300">
+                                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    {!! $item['icon'] !!}
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-base font-bold text-white group-hover:text-primary transition-colors">
+                                    {{ $item['title'] }}
+                                </h3>
+                                <p class="text-sm text-gray-400 mt-1 leading-relaxed group-hover:text-gray-300 transition-colors">
+                                    {{ $item['desc'] }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
             </div>
         </div>
      </section>
 
     {{-- Our Clients & Partners Section --}}
-    <section class="py-16 bg-gray-50 border-y border-gray-200">
+    <section class="py-10 sm:py-16 bg-gray-50 border-y border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <span class="text-xs font-black text-primary uppercase tracking-widest">TRUSTED BY</span>
-                <h2 class="text-3xl md:text-4xl font-black text-gray-900 mt-3 uppercase">Our Clients & Partners</h2>
-                <p class="text-gray-600 mt-4 max-w-2xl mx-auto font-medium">
+            <div class="text-center mb-8 sm:mb-12">
+                <span class="text-[10px] sm:text-xs font-black text-primary uppercase tracking-widest">TRUSTED BY</span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 mt-2 sm:mt-3 uppercase">Our Clients & Partners</h2>
+                <p class="text-gray-600 mt-2 sm:mt-4 max-w-2xl mx-auto text-sm sm:text-base font-medium">
                     Over 5000+ businesses across South Africa trust Denny Express for their POS needs.
                 </p>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 items-center">
                 @php
                     $clientLogos = [
                         ['name' => 'Puma', 'url' => 'https://dennyexpress.co.za/wp-content/uploads/2026/02/puma.webp'],
@@ -677,13 +707,13 @@
                 @endphp
 
                 @foreach ($clientLogos as $logo)
-                <div class="flex items-center justify-center p-6 bg-white rounded-2xl border border-gray-200 hover:border-primary/30 hover:shadow-lg transition-all duration-300 group">
+                <div class="flex items-center justify-center p-4 sm:p-6 bg-white rounded-xl sm:rounded-2xl border border-gray-200 hover:border-primary/30 hover:shadow-lg transition-all duration-300 group">
                     <img src="{{ $logo['url'] }}" 
                          alt="{{ $logo['name'] }}" 
-                         class="h-12 max-w-[120px] object-contain opacity-70 group-hover:opacity-100 transition-opacity grayscale group-hover:grayscale-0"
+                         class="h-10 sm:h-14 max-w-[100px] sm:max-w-[140px] object-contain opacity-90 group-hover:opacity-100 transition-opacity"
                          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="hidden items-center justify-center w-full h-12">
-                        <span class="text-sm font-black text-gray-400 uppercase">{{ $logo['name'] }}</span>
+                    <div class="hidden items-center justify-center w-full h-10 sm:h-14">
+                        <span class="text-xs sm:text-sm font-black text-gray-400 uppercase">{{ $logo['name'] }}</span>
                     </div>
                 </div>
                 @endforeach
@@ -692,73 +722,118 @@
     </section>
 
     {{-- Testimonials Section --}}
-    <section class="py-20 relative overflow-hidden" style="background: linear-gradient(135deg, #020617 0%, #1e293b 40%, #020617 100%);">
+    <section class="py-12 sm:py-20 relative overflow-hidden" style="background: linear-gradient(135deg, #020617 0%, #1e293b 40%, #020617 100%);">
         <div class="absolute inset-0">
-            <div class="absolute top-0 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl"></div>
+            <div class="absolute top-0 left-0 w-48 sm:w-96 h-48 sm:h-96 bg-primary/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-48 sm:w-96 h-48 sm:h-96 bg-accent/10 rounded-full blur-3xl"></div>
         </div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div class="text-center mb-16">
-                <span class="text-xs font-black text-accent uppercase tracking-widest">TESTIMONIALS</span>
-                <h2 class="text-3xl md:text-4xl font-black text-white mt-3 uppercase">What Our Clients Say</h2>
-                <p class="text-gray-400 mt-4 max-w-2xl mx-auto font-medium">
-                    Don't just take our word for it. Hear from businesses that trust Denny Express.
+            <div class="text-center mb-8 sm:mb-16">
+                <span class="text-[10px] sm:text-xs font-black text-accent uppercase tracking-widest">TESTIMONIALS</span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-white mt-2 sm:mt-3 uppercase">What Our Clients Say</h2>
+                <p class="text-gray-400 mt-2 sm:mt-4 max-w-2xl mx-auto text-sm sm:text-base font-medium">
+                    Based on 183+ reviews — hear from businesses that trust Denny Express
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                @php
-                    $testimonials = [
-                        [
-                            'name' => 'Sarah Johnson',
-                            'business' => 'Freshmart Supermarket, Cape Town',
-                            'text' => 'We switched from a cloud POS to DennyPOS and never looked back. Load shedding used to crash our old system — now we process sales even when the power is out with our inverter setup. The support team is incredible.',
-                            'rating' => 5,
-                            'initials' => 'SJ'
-                        ],
-                        [
-                            'name' => 'David Mokoena',
-                            'business' => 'Blue Moon Tavern, Pretoria',
-                            'text' => 'The on-premises data control was a game-changer for us. We handle thousands of transactions weekly and the last thing we need is internet issues affecting sales. DennyPOS is solid, reliable, and the reporting is perfect for our liquor license audits.',
-                            'rating' => 5,
-                            'initials' => 'DM'
-                        ],
-                        [
-                            'name' => 'Michelle Lee',
-                            'business' => 'Urban Style Boutique, Johannesburg',
-                            'text' => 'No monthly fees! That alone saved us R12,000 per year compared to our previous cloud POS. The customization options are amazing — they added specific features we needed for our loyalty program. Highly recommend Denny Express.',
-                            'rating' => 5,
-                            'initials' => 'ML'
-                        ]
-                    ];
-                @endphp
+            <div x-data="{ activeSlide: 0 }" class="relative">
+                <div class="grid md:grid-cols-3 gap-4 sm:gap-8">
+                    @php
+                        $testimonials = [
+                            [
+                                'name' => 'Kabelo Mbuli',
+                                'location' => 'Morokweng, North West',
+                                'text' => 'Good service, I bought for my bottle store everything new and system is working fine thank you Denny Express, my stock is always balanced.',
+                                'rating' => 5,
+                                'date' => '2026-01-20'
+                            ],
+                            [
+                                'name' => 'Danielle Mailosi',
+                                'location' => 'Gqeberha',
+                                'text' => 'Thanks to Denny Express they delivered our POS in Gqeberha and their POS is user friendly.',
+                                'rating' => 5,
+                                'date' => '2026-01-10'
+                            ],
+                            [
+                                'name' => 'Zenande Ngomane',
+                                'location' => 'South Africa',
+                                'text' => 'Thank you Denny Express I am no longer paying monthly, you saved me guys!',
+                                'rating' => 5,
+                                'date' => '2026-01-09'
+                            ],
+                            [
+                                'name' => 'Themko Bhomu',
+                                'location' => 'Tonga',
+                                'text' => 'The service was good at Tonga and product quality is excellent.',
+                                'rating' => 5,
+                                'date' => '2026-01-09'
+                            ],
+                            [
+                                'name' => 'Asamiru Mavalani',
+                                'location' => 'Great Giyani',
+                                'text' => 'Denny Express Group is reliable and a company to trust. They delivered my POS very early in Great Giyani.',
+                                'rating' => 5,
+                                'date' => '2026-01-05'
+                            ],
+                            [
+                                'name' => 'Nombuso Nxumalo',
+                                'location' => 'South Africa',
+                                'text' => 'Excellent service! They are good at making you understand what they are doing, and the person who gives you the practice is so patient.',
+                                'rating' => 5,
+                                'date' => '2025-12-27'
+                            ]
+                        ];
+                    @endphp
 
-                @foreach ($testimonials as $t)
-                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-primary/30 transition-all">
-                    <div class="flex items-center gap-1 mb-4">
-                        @for ($i = 0; $i < $t['rating']; $i++)
-                        <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </svg>
-                        @endfor
-                    </div>
-
-                    <p class="text-gray-300 font-medium leading-relaxed mb-6">
-                        "{{ $t['text'] }}"
-                    </p>
-
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center">
-                            <span class="text-white font-black text-sm">{{ $t['initials'] }}</span>
+                    @foreach ($testimonials as $t)
+                    <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl sm:rounded-2xl p-5 sm:p-8 hover:border-primary/30 transition-all">
+                        <div class="flex items-center gap-2 mb-3 sm:mb-4 flex-wrap">
+                            <div class="flex items-center gap-1">
+                                @for ($i = 0; $i < $t['rating']; $i++)
+                                <svg class="w-4 sm:w-5 h-4 sm:h-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                @endfor
+                            </div>
+                            <div class="flex items-center gap-1 ml-auto">
+                                <svg class="w-4 sm:w-5 h-4 sm:h-5" viewBox="0 0 24 24" fill="none">
+                                    <rect width="24" height="24" rx="4" fill="#4285F4"/>
+                                    <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" fill="white" font-size="14" font-weight="bold">G</text>
+                                </svg>
+                                <span class="text-[10px] sm:text-xs text-gray-500 font-medium">Google</span>
+                            </div>
                         </div>
-                        <div>
-                            <p class="text-white font-black text-sm">{{ $t['name'] }}</p>
-                            <p class="text-gray-500 text-xs font-medium">{{ $t['business'] }}</p>
+
+                        <p class="text-gray-300 text-sm sm:text-base font-medium leading-relaxed mb-4 sm:mb-6">
+                            "{{ $t['text'] }}"
+                        </p>
+
+                        <div class="flex items-center gap-3 sm:gap-4">
+                            <div class="w-10 sm:w-12 h-10 sm:h-12 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center shrink-0">
+                                <span class="text-white font-black text-xs sm:text-sm">{{ substr($t['name'], 0, 1) }}{{ substr(explode(' ', $t['name'])[1] ?? '', 0, 1) }}</span>
+                            </div>
+                            <div class="min-w-0">
+                                <p class="text-white font-black text-xs sm:text-sm truncate">{{ $t['name'] }}</p>
+                                <p class="text-gray-500 text-[10px] sm:text-xs font-medium truncate">{{ $t['location'] }}</p>
+                            </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
-                @endforeach
+            </div>
+
+            <div class="text-center mt-8 sm:mt-12">
+                <a href="https://search.google.com/local/reviews?placeid=DENNY_EXPRESS" target="_blank" class="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-white/5 backdrop-blur-sm border border-white/20 text-white text-xs sm:text-sm font-semibold rounded-xl hover:bg-white/10 hover:border-white/30 transition-all duration-300">
+                    <svg class="w-4 sm:w-5 h-4 sm:h-5" viewBox="0 0 24 24" fill="none">
+                        <rect width="24" height="24" rx="4" fill="#4285F4"/>
+                        <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" fill="white" font-size="14" font-weight="bold">G</text>
+                    </svg>
+                    Read All Reviews on Google
+                    <svg class="w-4 sm:w-5 h-4 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                </a>
             </div>
         </div>
     </section>
@@ -777,6 +852,22 @@
             <div x-data="{ openPanel: 0 }" class="space-y-4">
                 @php
                     $faqs = [
+                        [
+                            'q' => 'How do I place an order on Denny Express?',
+                            'a' => 'Placing an order is easy! Just follow these steps: Browse our collection and select the gadget you\'d like to buy. Click "Add to Cart" on the product page. Once you\'re done shopping, click the cart icon at the top right of the page. Click "Checkout" and fill in your shipping details. Choose your preferred payment method and confirm your order. You\'ll receive an order confirmation email with the details of your order.'
+                        ],
+                        [
+                            'q' => 'How can I track my order?',
+                            'a' => 'Once your order is shipped, you\'ll receive a tracking number via email. You can use this number on our courier partner\'s website to monitor your shipment\'s progress. You can also track your order directly on our website using the Track Order feature.'
+                        ],
+                        [
+                            'q' => 'Do your gadgets come with a warranty?',
+                            'a' => 'Yes, all our products come with a manufacturer\'s warranty. The duration and terms vary by product; please refer to the product page for specific details. Standard warranty is 18 months on most products.'
+                        ],
+                        [
+                            'q' => 'How can I contact customer service?',
+                            'a' => 'You can reach us through our contact form on the website, by emailing info@dennyexpress.co.za, or by calling our customer service hotline at 074 355 1336. We also offer WhatsApp support for quick inquiries.'
+                        ],
                         [
                             'q' => 'Is DennyPOS cloud-based or locally installed?',
                             'a' => 'DennyPOS is locally installed on your premises. Unlike cloud solutions, your data never leaves your store. This means zero downtime when your internet is down, complete data ownership, and maximum security. Perfect for businesses dealing with load shedding or unreliable connectivity.'
@@ -837,7 +928,7 @@
             </div>
 
             {{-- Still have questions CTA --}}
-            <div class="mt-12 bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl p-8 md:p-10 border border-primary/20 text-center">
+            <div class="mt-8 sm:mt-12 bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-10 border border-primary/20 text-center">
                 <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mx-auto mb-6">
                     <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
@@ -866,31 +957,31 @@
     </section>
 
     {{-- CTA Section - Matching hero dark gradient --}}
-    <section class="py-20 relative overflow-hidden" style="background: linear-gradient(135deg, #020617 0%, #1e293b 40%, #334155 70%, #1e293b 100%);">
+    <section class="py-12 sm:py-20 relative overflow-hidden" style="background: linear-gradient(135deg, #020617 0%, #1e293b 40%, #334155 70%, #1e293b 100%);">
         <div class="absolute inset-0 opacity-30">
-            <div class="absolute top-0 right-0 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
-            <div class="absolute bottom-0 left-0 w-72 h-72 bg-accent rounded-full blur-3xl"></div>
+            <div class="absolute top-0 right-0 w-48 sm:w-96 h-48 sm:h-96 bg-primary rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-48 sm:w-72 h-48 sm:h-72 bg-accent rounded-full blur-3xl"></div>
         </div>
         
          <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-              <h2 class="text-3xl md:text-5xl font-black text-white mb-4 tracking-tight uppercase">
-                  Ready to Upgrade Your Business?
-              </h2>
-             <p class="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
-                 Get a complete POS system with DennyPOS — powerful locally-installed software with your data stays on your premises. No monthly fees, maximum security. Contact us today for a free consultation.
-             </p>
+               <h2 class="text-2xl sm:text-3xl md:text-5xl font-black text-white mb-3 sm:mb-4 tracking-tight uppercase">
+                   Ready to Upgrade Your Business?
+               </h2>
+              <p class="text-gray-400 text-sm sm:text-base lg:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto">
+                  Get a complete POS system with DennyPOS — powerful locally-installed software with your data stays on your premises. No monthly fees, maximum security. Contact us today for a free consultation.
+              </p>
             
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="{{ route('shop.index') }}?category=pos-systems" class="inline-flex items-center justify-center gap-2 px-10 py-4 bg-gradient-to-r from-primary to-primary-light text-white font-bold rounded-xl hover:from-primary-dark hover:to-primary transition-all duration-300 shadow-lg shadow-primary/25">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+                <a href="{{ route('shop.index') }}?category=pos-systems" class="inline-flex items-center justify-center gap-2 px-6 sm:px-10 py-3 sm:py-4 bg-gradient-to-r from-primary to-primary-light text-white font-bold rounded-xl hover:from-primary-dark hover:to-primary transition-all duration-300 shadow-lg shadow-primary/25">
+                    <svg class="w-4 sm:w-5 h-4 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                     </svg>
                     Shop POS Systems
                 </a>
                 <a href="https://wa.me/27743551336?text=Hi%21%20I%27d%20like%20a%20quote%20for%20a%20POS%20system" 
                    target="_blank" 
-                   class="inline-flex items-center justify-center gap-2 px-10 py-4 bg-white/5 backdrop-blur-sm border border-white/20 text-white font-semibold rounded-xl hover:bg-white/10 hover:border-white/30 transition-all duration-300">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                   class="inline-flex items-center justify-center gap-2 px-6 sm:px-10 py-3 sm:py-4 bg-white/5 backdrop-blur-sm border border-white/20 text-white font-semibold rounded-xl hover:bg-white/10 hover:border-white/30 transition-all duration-300">
+                    <svg class="w-4 sm:w-5 h-4 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.012-.172-.249-.018-.384.13-.506.135-.11.3-.286.449-.429.147-.143.196-.249.296-.415.099-.166.05-.305-.025-.43-.074-.124-.67-1.61-.918-2.205-.242-.578-.489-.498-.67-.506-.172-.009-.37-.013-.568-.013-.197 0-.518.074-.79.371-.273.297-1.04 1.014-1.04 2.467 0 1.453 1.065 2.851 1.213 3.05.149.199 2.092 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                     </svg>
                     Get Free Quote

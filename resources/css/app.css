@@ -12,7 +12,7 @@
     --color-primary: #65a30d;
     --color-primary-light: #84cc16;
     --color-primary-dark: #4d7c0f;
-    
+
     --color-accent: #eab308;
     --color-accent-light: #facc15;
     --color-accent-dark: #ca8a04;
@@ -24,7 +24,7 @@
     --color-dark: #111827;
     --color-dark-light: #1f2937;
     --color-dark-lighter: #374151;
-    
+
     --color-surface: #1f2937;
     --color-surface-light: #374151;
     --color-surface-dark: #111827;
@@ -35,4 +35,82 @@
     --color-error-light: #fee2e2;
     --color-warning: #eab308;
     --color-warning-light: #fef9c3;
+}
+
+@utility container-custom {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+@utility container-tight {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+@layer base {
+    html {
+        -webkit-text-size-adjust: 100%;
+        overflow-x: hidden;
+    }
+    body {
+        overflow-x: hidden;
+        min-height: 100dvh;
+    }
+    img, video, svg {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--color-primary);
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 700;
+    border-radius: 0.75rem;
+    transition: all 0.3s;
+    cursor: pointer;
+    border: none;
+    line-height: 1.25rem;
+}
+.btn-primary:hover {
+    background-color: var(--color-primary-dark);
+    box-shadow: 0 10px 15px -3px rgb(101 163 13 / 0.25);
+}
+.btn-primary:disabled {
+    background-color: #e5e7eb;
+    color: #6b7280;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    background-color: white;
+    color: var(--color-secondary);
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 0.75rem;
+    border: 2px solid #e5e7eb;
+    transition: all 0.3s;
+    cursor: pointer;
+    line-height: 1.25rem;
+}
+.btn-secondary:hover {
+    background-color: #f9fafb;
+    border-color: #d1d5db;
 }

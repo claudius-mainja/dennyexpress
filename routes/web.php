@@ -8,6 +8,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuoteController;
+use App\Http\Controllers\TrackOrderController;
 use App\Http\Controllers\WishlistController;
 use Illuminate\Support\Facades\Route;
 
@@ -56,7 +57,18 @@ Route::get('/payment/error/{order}', [PaymentController::class, 'error'])->name(
 
 // Static Pages
 Route::get('/about', function () { return view('pages.about'); })->name('pages.about');
-Route::get('/contact', function () { return view('pages.contact'); })->name('pages.contact');
+Route::match(['GET', 'POST'], '/contact', function (Illuminate\Http\Request $request) {
+    if ($request->isMethod('post')) {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'subject' => 'required|string|max:255',
+            'message' => 'required|string',
+        ]);
+        return redirect()->route('pages.contact')->with('success', 'Thank you! Your message has been sent. We\'ll get back to you shortly.');
+    }
+    return view('pages.contact');
+})->name('pages.contact');
 Route::get('/faq', function () { return view('pages.faq'); })->name('pages.faq');
 Route::get('/warranty', function () { return view('pages.warranty'); })->name('pages.warranty');
 Route::get('/support', function () { return view('pages.support'); })->name('pages.support');
@@ -65,7 +77,8 @@ Route::get('/privacy', function () { return view('pages.privacy'); })->name('pag
 Route::get('/shipping', function () { return view('pages.shipping'); })->name('pages.shipping');
 Route::get('/returns', function () { return view('pages.returns'); })->name('pages.returns');
 Route::get('/services', function () { return view('pages.services'); })->name('pages.services');
-Route::get('/track-order', function () { return view('pages.track-order'); })->name('pages.track-order');
+Route::get('/track-order', [TrackOrderController::class, 'index'])->name('pages.track-order');
+Route::post('/track-order', [TrackOrderController::class, 'show'])->name('pages.track-order.search');
 
 // Breeze Dashboard
 Route::get('/dashboard', function () {
