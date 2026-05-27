@@ -12,6 +12,7 @@ if (isset($_ENV['VERCEL_ENV'])) {
     putenv('SESSION_DRIVER=array');
     putenv('CACHE_STORE=database');
     putenv('QUEUE_CONNECTION=database');
+    putenv('APP_DEBUG=true');
 }
 
 require __DIR__ . '/../vendor/autoload.php';
