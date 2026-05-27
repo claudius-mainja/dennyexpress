@@ -10,7 +10,7 @@ if (isset($_ENV['VERCEL_ENV'])) {
     putenv('COMPOSER_VENDOR_DIR=/tmp/vendor');
     putenv('LOG_CHANNEL=stderr');
     putenv('SESSION_DRIVER=array');
-    putenv('CACHE_STORE=database');
+    putenv('CACHE_STORE=array');
     putenv('QUEUE_CONNECTION=database');
     putenv('APP_DEBUG=true');
 }
