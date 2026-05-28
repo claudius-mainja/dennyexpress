@@ -49,8 +49,8 @@
                             <p class="text-xs sm:text-sm text-gray-600 font-medium mt-1">Happy Customers</p>
                         </div>
                         <div class="bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl p-4 sm:p-6 text-center border border-primary/20 col-span-2 sm:col-span-1">
-                            <p class="text-2xl sm:text-3xl font-black text-primary">18</p>
-                            <p class="text-xs sm:text-sm text-gray-600 font-medium mt-1">Month Warranty</p>
+                            <p class="text-2xl sm:text-3xl font-black text-primary">✓</p>
+                            <p class="text-xs sm:text-sm text-gray-600 font-medium mt-1">Warranty</p>
                         </div>
                     </div>
                 </div>
@@ -100,7 +100,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                         </div>
-                        <h3 class="text-base sm:text-lg font-black text-gray-900 uppercase mb-2 sm:mb-3">18-Month Warranty</h3>
+                        <h3 class="text-base sm:text-lg font-black text-gray-900 uppercase mb-2 sm:mb-3">Product Warranty</h3>
                         <p class="text-gray-600 text-sm sm:text-base leading-relaxed">We stand behind every product with industry-leading warranty coverage.</p>
                     </div>
 
@@ -120,8 +120,8 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
                             </svg>
                         </div>
-                        <h3 class="text-base sm:text-lg font-black text-gray-900 uppercase mb-2 sm:mb-3">Free Delivery</h3>
-                        <p class="text-gray-600 text-sm sm:text-base leading-relaxed">Free nationwide delivery on orders over R5,000.</p>
+                        <h3 class="text-base sm:text-lg font-black text-gray-900 uppercase mb-2 sm:mb-3">Nationwide Delivery</h3>
+                        <p class="text-gray-600 text-sm sm:text-base leading-relaxed">We deliver to all corners of South Africa.</p>
                     </div>
                 </div>
             </div>

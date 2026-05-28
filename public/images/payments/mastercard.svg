@@ -1,6 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 40">
-    <rect width="100" height="40" rx="4" fill="#1A1F71"/>
-    <circle cx="38" cy="20" r="14" fill="#EB001B"/>
-    <circle cx="62" cy="20" r="14" fill="#F79E1B"/>
-    <ellipse cx="50" cy="20" rx="6" ry="14" fill="#FF5F00"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 40" width="100" height="40">
+  <rect width="100" height="40" rx="5" fill="white"/>
+  <rect width="100" height="40" rx="5" fill="none" stroke="#E0E0E0" stroke-width="0.5"/>
+  <text x="50" y="12" font-family="Arial,Helvetica,sans-serif" font-size="6" font-weight="bold" fill="#1A1F71" text-anchor="middle" letter-spacing="1.5">Mastercard</text>
+  <circle cx="40" cy="24" r="10" fill="#EB001B" opacity="0.9"/>
+  <circle cx="52" cy="24" r="10" fill="#F79E1B" opacity="0.9"/>
+  <rect x="42" y="14" width="8" height="20" fill="#FF5F00" opacity="0.7"/>
+  <text x="50" y="37" font-family="Arial,Helvetica,sans-serif" font-size="3.5" fill="#666" text-anchor="middle" letter-spacing="1">credit card</text>
 </svg>

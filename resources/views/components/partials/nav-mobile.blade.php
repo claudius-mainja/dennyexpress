@@ -35,7 +35,7 @@
                 </li>
                 <li>
                     <a href="{{ route('shop.index') }}" class="block px-3 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-50 rounded-lg transition-colors" @click="mobileOpen = false">
-                        Shop All Products
+                        Our Shop
                     </a>
                 </li>
                 <li x-data="{ open: false }">

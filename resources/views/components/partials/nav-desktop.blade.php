@@ -1,3 +1,17 @@
+<style>
+    @keyframes flicker {
+                0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(101, 163, 13, 0); }
+                10% { opacity: 0.92; box-shadow: 0 0 8px 2px rgba(101, 163, 13, 0.3); }
+                20% { opacity: 1; box-shadow: 0 0 0 0 rgba(101, 163, 13, 0); }
+                30% { opacity: 0.85; box-shadow: 0 0 12px 4px rgba(101, 163, 13, 0.4); }
+                40% { opacity: 1; box-shadow: 0 0 0 0 rgba(101, 163, 13, 0); }
+                70% { opacity: 0.95; box-shadow: 0 0 6px 2px rgba(101, 163, 13, 0.2); }
+                75% { opacity: 1; box-shadow: 0 0 0 0 rgba(101, 163, 13, 0); }
+    }
+    .animate-flicker {
+        animation: flicker 3s ease-in-out infinite;
+    }
+</style>
 <nav class="hidden lg:flex items-center" x-data="{ dropdown: null }">
     <ul class="flex items-center gap-1">
         <li>
@@ -6,11 +20,11 @@
             </a>
         </li>
         <li @mouseenter="dropdown = 'allproducts'" @mouseleave="dropdown = null" class="relative">
-            <button class="text-sm text-gray-600 hover:text-primary font-medium px-4 py-2 bg-primary/5 rounded-lg inline-flex items-center gap-1.5 transition-colors {{ request()->routeIs('shop.*') ? 'text-primary bg-primary/10' : '' }}">
+            <button class="text-sm text-white font-medium px-4 py-2 bg-gradient-to-r from-primary to-primary-light rounded-lg inline-flex items-center gap-1.5 transition-all hover:shadow-lg hover:shadow-primary/25 animate-flicker {{ request()->routeIs('shop.*') ? 'text-white bg-primary/10' : '' }}">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
                 </svg>
-                All Products
+                Our Shop
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                 </svg>
@@ -31,7 +45,7 @@
                         </svg>
                     </div>
                     <div>
-                        <p class="font-medium text-gray-900">View All Products</p>
+                        <p class="font-medium text-gray-900">View Our Shop</p>
                         <p class="text-xs text-gray-500">Browse our complete catalog</p>
                     </div>
                 </a>

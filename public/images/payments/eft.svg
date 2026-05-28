@@ -1,4 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 40">
-    <rect width="100" height="40" rx="4" fill="#374151"/>
-    <text x="50" y="26" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">EFT</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 40" width="100" height="40">
+  <rect width="100" height="40" rx="5" fill="#1C64F2"/>
+  <rect width="100" height="40" rx="5" fill="none" stroke="#A0C4FF" stroke-width="0.5"/>
+  <path d="M15 20 L28 12 L28 28 Z" fill="white" opacity="0.9"/>
+  <path d="M30 20 L43 12 L43 28 Z" fill="white" opacity="0.7"/>
+  <path d="M45 20 L58 12 L58 28 Z" fill="white" opacity="0.5"/>
+  <text x="72" y="24" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="bold" fill="white">EFT</text>
+  <text x="72" y="33" font-family="Arial,Helvetica,sans-serif" font-size="4" fill="#A0C4FF" letter-spacing="0.5">BANK TRANSFER</text>
 </svg>

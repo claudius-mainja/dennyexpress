@@ -105,7 +105,7 @@
                  style="animation-duration: 35s;">
                 @foreach ($saleProducts->merge($saleProducts) as $product)
                 <div class="flex-shrink-0 w-[220px] group">
-                    <div class="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 hover:border-primary/50 hover:bg-white/10 transition-all duration-300">
+                    <a href="{{ route('products.show', $product->slug) }}" class="block relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 hover:border-primary/50 hover:bg-white/10 transition-all duration-300">
                         @php
                             $originalPrice = $product->price ?? 0;
                             $salePrice = $product->sale_price ?? $originalPrice;
@@ -140,7 +140,7 @@
                                 @endif
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 @endforeach
             </div>
@@ -271,8 +271,8 @@
                         </svg>
                     </div>
                     <div class="min-w-0">
-                        <p class="text-xs sm:text-sm font-bold text-white truncate">Free Delivery</p>
-                        <p class="text-[10px] sm:text-xs text-gray-500 truncate">Orders over R5,000</p>
+                        <p class="text-xs sm:text-sm font-bold text-white truncate">Nationwide Delivery</p>
+                        <p class="text-[10px] sm:text-xs text-gray-500 truncate">We deliver across SA</p>
                     </div>
                 </div>
                 <div class="flex items-center gap-3 p-3 sm:p-4 bg-white/5 rounded-2xl border border-white/5">
@@ -282,8 +282,8 @@
                         </svg>
                     </div>
                     <div class="min-w-0">
-                        <p class="text-xs sm:text-sm font-bold text-white truncate">18 Month Warranty</p>
-                        <p class="text-[10px] sm:text-xs text-gray-500 truncate">On all products</p>
+                        <p class="text-xs sm:text-sm font-bold text-white truncate">Product Warranty</p>
+                        <p class="text-[10px] sm:text-xs text-gray-500 truncate">Comprehensive warranty</p>
                     </div>
                 </div>
                 <div class="flex items-center gap-3 p-3 sm:p-4 bg-white/5 rounded-2xl border border-white/5">
@@ -381,17 +381,7 @@
                              </div>
                         </div>
                         
-                        <div class="flex items-center gap-4 p-4 bg-white/5 rounded-xl border border-white/5 hover:border-accent/30 transition-all">
-                            <div class="w-12 h-12 bg-gradient-to-br from-accent to-yellow-500 rounded-xl flex items-center justify-center shrink-0">
-                                <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                                </svg>
-                            </div>
-                             <div>
-                                 <h3 class="font-black text-white uppercase">AI-Powered Analytics</h3>
-                                 <p class="text-sm text-gray-500 font-medium">Smart insights to boost your sales and profits</p>
-                             </div>
-                        </div>
+
                         
                         <div class="flex items-center gap-4 p-4 bg-white/5 rounded-xl border border-white/5 hover:border-primary/30 transition-all">
                             <div class="w-12 h-12 bg-gradient-to-br from-primary to-primary-light rounded-xl flex items-center justify-center shrink-0">
@@ -862,7 +852,7 @@
                         ],
                         [
                             'q' => 'Do your gadgets come with a warranty?',
-                            'a' => 'Yes, all our products come with a manufacturer\'s warranty. The duration and terms vary by product; please refer to the product page for specific details. Standard warranty is 18 months on most products.'
+                            'a' => 'Yes, all our products come with a comprehensive warranty. The duration and terms vary by product; please refer to the product page for specific details.'
                         ],
                         [
                             'q' => 'How can I contact customer service?',

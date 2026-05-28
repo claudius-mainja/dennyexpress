@@ -3,20 +3,14 @@
 <div {{ $attributes->merge(['class' => 'bg-gray-50 rounded-xl border border-gray-200 p-6 space-y-4']) }}>
     <h3 class="text-lg font-semibold text-gray-900">Order Summary</h3>
 
-    @if ($subtotal > 0 && $subtotal < $freeShippingThreshold)
-        <div class="bg-amber-50 rounded-lg p-3 text-sm">
-            <p class="text-amber-600 font-medium">Add R{{ number_format($freeShippingThreshold - $subtotal, 2) }} more for free delivery!</p>
-        </div>
-    @elseif ($subtotal >= $freeShippingThreshold)
-        <div class="bg-green-50 rounded-lg p-3 text-sm">
-            <p class="text-green-600 font-medium flex items-center gap-1.5">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
-                You qualify for free delivery!
-            </p>
-        </div>
-    @endif
+    <div class="bg-primary/5 rounded-lg p-3 text-sm">
+        <p class="text-primary font-medium flex items-center gap-1.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+            </svg>
+            We deliver nationwide
+        </p>
+    </div>
 
     <div class="space-y-3 text-sm">
         <div class="flex items-center justify-between">
@@ -60,7 +54,6 @@
     <div class="flex items-center justify-center gap-3 pt-2">
         <img src="{{ asset('images/payments/visa.svg') }}" alt="Visa" class="h-6 object-contain">
         <img src="{{ asset('images/payments/mastercard.svg') }}" alt="Mastercard" class="h-6 object-contain">
-        <img src="{{ asset('images/payments/payfast.svg') }}" alt="PayFast" class="h-6 object-contain">
         <img src="{{ asset('images/payments/ozow.svg') }}" alt="Ozow" class="h-6 object-contain">
     </div>
 </div>

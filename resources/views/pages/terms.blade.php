@@ -60,7 +60,7 @@
 
                 <div class="p-4 sm:p-6 bg-white rounded-2xl border border-gray-200 hover:shadow-lg transition-all">
                     <h2 class="text-lg sm:text-2xl font-black text-gray-900 uppercase mb-3 sm:mb-4">6. Warranty</h2>
-                    <p class="text-sm sm:text-base text-gray-600 leading-relaxed">All hardware products come with an 18-month warranty as detailed in our <a href="{{ route('pages.warranty') }}" class="text-primary hover:text-primary-dark underline font-semibold">Warranty Policy</a>. This warranty covers manufacturing defects under normal use conditions.</p>
+                    <p class="text-sm sm:text-base text-gray-600 leading-relaxed">All products come with a comprehensive warranty as detailed in our <a href="{{ route('pages.warranty') }}" class="text-primary hover:text-primary-dark underline font-semibold">Warranty Policy</a>. This warranty covers manufacturing defects under normal use conditions.</p>
                 </div>
 
                 <div class="p-4 sm:p-6 bg-white rounded-2xl border border-gray-200 hover:shadow-lg transition-all">

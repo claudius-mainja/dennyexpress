@@ -15,7 +15,7 @@
                 </div>
                 <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-4 uppercase tracking-tight">Shipping Policy</h1>
                 <p class="text-gray-400 text-sm sm:text-lg max-w-2xl mx-auto font-medium">
-                    Fast and reliable shipping across South Africa. Free delivery on qualifying orders.
+                    Fast and reliable shipping across South Africa. We deliver nationwide.
                 </p>
             </div>
         </div>
@@ -34,8 +34,8 @@
                     <div class="w-12 sm:w-16 h-12 sm:h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
                         <svg class="w-6 sm:w-8 h-6 sm:h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" /></svg>
                     </div>
-                    <h3 class="text-sm sm:text-lg font-black text-gray-900 uppercase">Free Delivery</h3>
-                    <p class="text-gray-500 text-xs sm:text-sm mt-1">On orders over R5,000</p>
+                    <h3 class="text-sm sm:text-lg font-black text-gray-900 uppercase">Nationwide Delivery</h3>
+                    <p class="text-gray-500 text-xs sm:text-sm mt-1">We deliver across SA</p>
                 </div>
                 <div class="p-4 sm:p-6 bg-accent/5 rounded-2xl border border-accent/10 text-center">
                     <div class="w-12 sm:w-16 h-12 sm:h-16 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
@@ -55,10 +55,9 @@
 
             <div class="space-y-4 sm:space-y-6">
                 <div class="p-4 sm:p-6 bg-white rounded-2xl border border-gray-200 hover:shadow-lg transition-all">
-                    <h3 class="text-base sm:text-xl font-black text-gray-900 uppercase mb-2 sm:mb-3">Delivery Rates</h3>
+                    <h3 class="text-base sm:text-xl font-black text-gray-900 uppercase mb-2 sm:mb-3">Delivery Information</h3>
                     <ul class="space-y-2 sm:space-y-3 text-sm sm:text-base text-gray-600">
-                        <li class="flex items-start gap-2 sm:gap-3"><svg class="w-4 sm:w-5 h-4 sm:h-5 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> Free delivery on all orders over R5,000 anywhere in South Africa</li>
-                        <li class="flex items-start gap-2 sm:gap-3"><svg class="w-4 sm:w-5 h-4 sm:h-5 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> Orders under R5,000 are charged a flat delivery rate based on your location</li>
+                        <li class="flex items-start gap-2 sm:gap-3"><svg class="w-4 sm:w-5 h-4 sm:h-5 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> We deliver nationwide across South Africa</li>
                         <li class="flex items-start gap-2 sm:gap-3"><svg class="w-4 sm:w-5 h-4 sm:h-5 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> Main centres (Gauteng, Cape Town, Durban): R150 flat rate</li>
                         <li class="flex items-start gap-2 sm:gap-3"><svg class="w-4 sm:w-5 h-4 sm:h-5 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> Regional areas: R250 flat rate</li>
                     </ul>

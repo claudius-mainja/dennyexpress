@@ -24,7 +24,7 @@
             <div>
                 <h3 class="text-sm font-black uppercase tracking-wider text-gray-400 mb-4">Shop</h3>
                 <ul class="space-y-2.5">
-                    <li><a href="{{ route('shop.index') }}" class="text-sm text-gray-300 hover:text-white transition-colors">All Products</a></li>
+                    <li><a href="{{ route('shop.index') }}" class="text-sm text-gray-300 hover:text-white transition-colors">Our Shop</a></li>
                     <li><a href="{{ route('shop.index') }}?category=pos-systems" class="text-sm text-gray-300 hover:text-white transition-colors">POS Systems</a></li>
                     <li><a href="{{ route('shop.index') }}?category=computers" class="text-sm text-gray-300 hover:text-white transition-colors">Desktops</a></li>
                     <li><a href="{{ route('shop.index') }}?category=monitors" class="text-sm text-gray-300 hover:text-white transition-colors">Monitors</a></li>
@@ -91,7 +91,6 @@
                 <div class="flex items-center gap-3">
                     <img src="{{ asset('images/payments/visa.svg') }}" alt="Visa" class="h-8 object-contain">
                     <img src="{{ asset('images/payments/mastercard.svg') }}" alt="Mastercard" class="h-8 object-contain">
-                    <img src="{{ asset('images/payments/payfast.svg') }}" alt="PayFast" class="h-8 object-contain">
                     <img src="{{ asset('images/payments/ozow.svg') }}" alt="Ozow" class="h-8 object-contain">
                     <img src="{{ asset('images/payments/eft.svg') }}" alt="EFT" class="h-8 object-contain">
                 </div>

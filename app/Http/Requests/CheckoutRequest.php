@@ -33,7 +33,7 @@ class CheckoutRequest extends FormRequest
             'shipping_zip' => ['nullable', 'string', 'max:20'],
             'shipping_country' => ['nullable', 'string', 'max:255'],
 
-            'payment_method' => ['required', 'string', 'in:card,payfast,ozow,payjustnow,bank_transfer,cod'],
+            'payment_method' => ['required', 'string', 'in:card,ozow,payjustnow,bank_transfer'],
             'notes' => ['nullable', 'string', 'max:1000'],
         ];
     }

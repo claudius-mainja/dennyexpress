@@ -279,27 +279,6 @@
                                     </div>
                                 </div>
 
-                                {{-- PayFast (redirect) --}}
-                                <label class="flex items-start gap-3 p-4 rounded-lg border transition-all duration-200 cursor-pointer bg-white"
-                                       :class="payment_method === 'payfast' ? 'border-primary ring-1 ring-primary' : 'border-gray-200 hover:border-gray-300'">
-                                    <input type="radio"
-                                           value="payfast"
-                                           class="mt-1 text-primary focus:ring-primary"
-                                           x-model="payment_method">
-                                    <div class="flex-1">
-                                        <div class="flex items-center gap-2">
-                                            <span class="text-sm font-medium text-gray-900">PayFast</span>
-                                            <span class="text-xs px-2 py-0.5 bg-green-100 text-green-700 rounded font-medium">Redirect</span>
-                                        </div>
-                                        <p class="text-xs text-gray-500 mt-1">Pay via credit card, debit card, or instant EFT through PayFast's secure portal</p>
-                                        <div class="flex items-center gap-2 mt-2">
-                                            <img src="{{ asset('images/payments/visa.svg') }}" alt="Visa" class="h-5 object-contain opacity-60">
-                                            <img src="{{ asset('images/payments/mastercard.svg') }}" alt="Mastercard" class="h-5 object-contain opacity-60">
-                                            <img src="{{ asset('images/payments/payfast.svg') }}" alt="PayFast" class="h-5 object-contain opacity-60">
-                                        </div>
-                                    </div>
-                                </label>
-
                                 {{-- Ozow --}}
                                 <label class="flex items-start gap-3 p-4 rounded-lg border transition-all duration-200 cursor-pointer bg-white"
                                        :class="payment_method === 'ozow' ? 'border-primary ring-1 ring-primary' : 'border-gray-200 hover:border-gray-300'">
@@ -354,21 +333,7 @@
                                     </div>
                                 </label>
 
-                                {{-- Cash on Delivery --}}
-                                <label class="flex items-start gap-3 p-4 rounded-lg border transition-all duration-200 cursor-pointer bg-white"
-                                       :class="payment_method === 'cod' ? 'border-primary ring-1 ring-primary' : 'border-gray-200 hover:border-gray-300'">
-                                    <input type="radio"
-                                           value="cod"
-                                           class="mt-1 text-primary focus:ring-primary"
-                                           x-model="payment_method">
-                                    <div class="flex-1">
-                                        <div class="flex items-center gap-2">
-                                            <span class="text-sm font-medium text-gray-900">Cash on Delivery</span>
-                                            <span class="text-xs px-2 py-0.5 bg-teal-100 text-teal-700 rounded font-medium">COD</span>
-                                        </div>
-                                        <p class="text-xs text-gray-500 mt-1">Pay with cash when your order is delivered. Available for select locations.</p>
-                                    </div>
-                                </label>
+
                             </div>
                             <x-input-error :messages="$errors->get('payment_method')" class="mt-3" />
                         </div>
@@ -451,7 +416,6 @@
                             <div class="flex items-center justify-center gap-3 pt-2 border-t border-gray-200">
                                 <img src="{{ asset('images/payments/visa.svg') }}" alt="Visa" class="h-7 object-contain">
                                 <img src="{{ asset('images/payments/mastercard.svg') }}" alt="Mastercard" class="h-7 object-contain">
-                                <img src="{{ asset('images/payments/payfast.svg') }}" alt="PayFast" class="h-7 object-contain">
                                 <img src="{{ asset('images/payments/ozow.svg') }}" alt="Ozow" class="h-7 object-contain">
                                 <img src="{{ asset('images/payments/eft.svg') }}" alt="EFT" class="h-7 object-contain">
                             </div>

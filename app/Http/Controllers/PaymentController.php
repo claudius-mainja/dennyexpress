@@ -6,19 +6,16 @@ use App\Enums\OrderStatus;
 use App\Enums\PaymentMethod;
 use App\Enums\PaymentStatus;
 use App\Models\Order;
-use App\Services\PayFastService;
 use App\Services\OzowService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 class PaymentController extends Controller
 {
-    protected PayFastService $payFast;
     protected OzowService $ozow;
 
-    public function __construct(PayFastService $payFast, OzowService $ozow)
+    public function __construct(OzowService $ozow)
     {
-        $this->payFast = $payFast;
         $this->ozow = $ozow;
     }
 
@@ -31,9 +28,6 @@ class PaymentController extends Controller
 
         switch ($order->payment_method) {
             case PaymentMethod::CARD:
-            case PaymentMethod::PAYFAST:
-                return $this->redirectToPayFast($order);
-            
             case PaymentMethod::OZOW:
                 return $this->redirectToOzow($order);
             
@@ -41,7 +35,6 @@ class PaymentController extends Controller
                 return view('payment.payjustnow', compact('order'));
             
             case PaymentMethod::BANK_TRANSFER:
-            case PaymentMethod::CASH_ON_DELIVERY:
                 return redirect()->route('checkout.success', $order->order_number)
                     ->with('info', 'Your order has been placed. Please follow the payment instructions.');
             
@@ -49,17 +42,6 @@ class PaymentController extends Controller
                 return redirect()->route('checkout.success', $order->order_number)
                     ->with('info', 'Your order has been placed.');
         }
-    }
-
-    protected function redirectToPayFast(Order $order)
-    {
-        $payment = $this->payFast->createPaymentRequest($order);
-
-        return view('payment.redirect', [
-            'url' => $payment['url'],
-            'data' => $payment['data'],
-            'gateway' => 'PayFast',
-        ]);
     }
 
     protected function redirectToOzow(Order $order)
@@ -74,9 +56,6 @@ class PaymentController extends Controller
         Log::info("Payment notification received from {$gateway}", $request->all());
 
         switch (strtolower($gateway)) {
-            case 'payfast':
-                return $this->handlePayFastNotification($request);
-            
             case 'ozow':
                 return $this->handleOzowNotification($request);
             
@@ -84,54 +63,6 @@ class PaymentController extends Controller
                 Log::warning("Unknown payment gateway: {$gateway}");
                 return response('Unknown gateway', 400);
         }
-    }
-
-    protected function handlePayFastNotification(Request $request)
-    {
-        $data = $request->all();
-
-        $signatureValid = $this->payFast->validateSignature($data);
-        if (!$signatureValid) {
-            Log::warning('PayFast: Invalid signature', $data);
-            return response('Invalid signature', 400);
-        }
-
-        $ipValid = $this->payFast->validateServerIp($request->ip());
-        if (!$ipValid) {
-            Log::warning('PayFast: Invalid IP: ' . $request->ip());
-        }
-
-        $verification = $this->payFast->verifyPayment($data);
-        if (!$verification['valid']) {
-            Log::warning('PayFast: Payment validation failed', $verification);
-            return response('Validation failed', 400);
-        }
-
-        $paymentStatus = strtolower($data['payment_status'] ?? '');
-        $orderNumber = $data['m_payment_id'] ?? $data['item_name'] ?? '';
-
-        $order = Order::where('order_number', $orderNumber)->first();
-        if (!$order) {
-            Log::error("PayFast: Order not found: {$orderNumber}");
-            return response('Order not found', 404);
-        }
-
-        if ($paymentStatus === 'complete') {
-            $order->update([
-                'payment_status' => PaymentStatus::COMPLETED->value,
-                'status' => OrderStatus::PROCESSING->value,
-                'transaction_id' => $data['pf_payment_id'] ?? null,
-                'paid_at' => now(),
-            ]);
-            Log::info("PayFast: Order {$order->order_number} marked as paid");
-        } else {
-            $order->update([
-                'payment_status' => PaymentStatus::FAILED->value,
-            ]);
-            Log::info("PayFast: Order {$order->order_number} payment {$paymentStatus}");
-        }
-
-        return response('OK');
     }
 
     protected function handleOzowNotification(Request $request)
