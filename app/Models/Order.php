@@ -20,7 +20,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
     'billing_city', 'billing_state', 'billing_zip', 'billing_country',
     'shipping_name', 'shipping_email', 'shipping_phone', 'shipping_address',
     'shipping_city', 'shipping_state', 'shipping_zip', 'shipping_country',
-    'payment_method', 'payment_status', 'notes',
+    'shipping_province',
+    'payment_method', 'payment_status', 'transaction_id', 'paid_at',
+    'tracking_number',
+    'notes',
 ])]
 class Order extends Model
 {

@@ -49,6 +49,7 @@
                 <h3 class="text-sm font-black uppercase tracking-wider text-gray-400 mb-4">Company</h3>
                 <ul class="space-y-2.5">
                     <li><a href="{{ route('pages.about') }}" class="text-sm text-gray-300 hover:text-white transition-colors">About Us</a></li>
+                    <li><a href="{{ route('blog.index') }}" class="text-sm text-gray-300 hover:text-white transition-colors">Blog</a></li>
                     <li><a href="{{ route('pages.terms') }}" class="text-sm text-gray-300 hover:text-white transition-colors">Terms & Conditions</a></li>
                     <li><a href="{{ route('pages.privacy') }}" class="text-sm text-gray-300 hover:text-white transition-colors">Privacy Policy</a></li>
                 </ul>

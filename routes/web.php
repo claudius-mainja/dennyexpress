@@ -55,6 +55,18 @@ Route::post('/payment/notify/{gateway}', [PaymentController::class, 'notify'])->
 Route::get('/payment/cancel', [PaymentController::class, 'cancel'])->name('payment.cancel');
 Route::get('/payment/error/{order}', [PaymentController::class, 'error'])->name('payment.error');
 
+// Payflex callbacks
+Route::get('/payflex/success/{order}', [CheckoutController::class, 'success'])->name('payflex.success');
+Route::get('/payflex/cancel/{order}', function () {
+    return redirect()->route('cart.index')->with('info', 'Payflex payment was cancelled.');
+})->name('payflex.cancel');
+
+// PayJustNow callbacks
+Route::get('/payjustnow/success/{order}', [CheckoutController::class, 'success'])->name('payjustnow.success');
+Route::get('/payjustnow/cancel/{order}', function () {
+    return redirect()->route('cart.index')->with('info', 'PayJustNow payment was cancelled.');
+})->name('payjustnow.cancel');
+
 // Static Pages
 Route::get('/about', function () { return view('pages.about'); })->name('pages.about');
 Route::match(['GET', 'POST'], '/contact', function (Illuminate\Http\Request $request) {
@@ -62,9 +74,19 @@ Route::match(['GET', 'POST'], '/contact', function (Illuminate\Http\Request $req
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
+            'phone' => 'nullable|string|max:255',
             'subject' => 'required|string|max:255',
             'message' => 'required|string',
         ]);
+
+        $contact = \App\Models\Contact::create($request->only(['name', 'email', 'phone', 'subject', 'message']));
+
+        try {
+            \Illuminate\Support\Facades\Mail::to('sales@dennyexpress.co.za')->send(new \App\Mail\ContactFormMail($contact));
+        } catch (\Throwable $e) {
+            // Queue failure won't block the user
+        }
+
         return redirect()->route('pages.contact')->with('success', 'Thank you! Your message has been sent. We\'ll get back to you shortly.');
     }
     return view('pages.contact');
@@ -91,5 +113,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+// Blog
+Route::get('/blog', [App\Http\Controllers\BlogController::class, 'index'])->name('blog.index');
+Route::get('/blog/{slug}', [App\Http\Controllers\BlogController::class, 'show'])->name('blog.show');
 
 require __DIR__.'/auth.php';

@@ -5,6 +5,7 @@ namespace App\Http\ViewComposers;
 use App\Models\Category;
 use App\Services\CartService;
 use App\Services\WishlistService;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class CartComposer
@@ -20,6 +21,17 @@ class CartComposer
 
     public function compose(View $view): void
     {
+        if (app()->runningInConsole()) {
+            return;
+        }
+
+        /** @var Request $request */
+        $request = request();
+
+        if ($request && str_starts_with($request->path(), 'admin')) {
+            return;
+        }
+
         $cartCount = $this->cartService->count();
         $cartTotal = $this->cartService->total();
         $wishlistCount = $this->wishlistService->count();

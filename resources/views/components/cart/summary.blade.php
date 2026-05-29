@@ -1,4 +1,4 @@
-@props(['subtotal' => 0, 'shipping' => null, 'tax' => 0, 'total' => 0, 'freeShippingThreshold' => 5000])
+@props(['subtotal' => 0, 'shipping' => null, 'tax' => 0, 'total' => 0])
 
 <div {{ $attributes->merge(['class' => 'bg-gray-50 rounded-xl border border-gray-200 p-6 space-y-4']) }}>
     <h3 class="text-lg font-semibold text-gray-900">Order Summary</h3>

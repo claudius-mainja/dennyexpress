@@ -6,6 +6,7 @@ use App\Models\Cart;
 use App\Models\CartItem;
 use App\Models\Product;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
@@ -171,11 +172,13 @@ class CartService
 
     public function getSessionId(): string
     {
-        $id = Session::get($this->sessionKey);
-        if (!$id) {
-            $id = (string) Str::uuid();
-            Session::put($this->sessionKey, $id);
-        }
+        $id = Cookie::get($this->sessionKey)
+            ?? Session::get($this->sessionKey)
+            ?? Session::getId();
+
+        Cookie::queue($this->sessionKey, $id, 43200);
+        Session::put($this->sessionKey, $id);
+
         return $id;
     }
 

@@ -108,6 +108,21 @@
 
                 <x-product.add-to-cart-form :product="$product" />
 
+                @if ($product->price > 0)
+                    @php $payflexMonthly = $product->sale_price && $product->sale_price < $product->price ? $product->sale_price / 4 : $product->price / 4; @endphp
+                    <div class="bg-teal-50 border border-teal-200 rounded-lg p-3 flex items-center gap-3">
+                        <div class="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center shrink-0">
+                            <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold text-teal-800">As low as <span class="text-teal-600">R{{ number_format($payflexMonthly, 2) }}/month</span></p>
+                            <p class="text-xs text-teal-600">4 interest-free payments with Payflex</p>
+                        </div>
+                    </div>
+                @endif
+
                 <div class="border-t border-gray-200 pt-4 sm:pt-6 space-y-2 sm:space-y-3">
                     @if ($product->warranty_months)
                         <div class="flex items-center gap-2 text-xs sm:text-sm text-gray-600">

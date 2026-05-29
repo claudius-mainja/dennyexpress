@@ -12,12 +12,30 @@ class OzowService
     protected string $siteCode;
     protected string $apiKey;
     protected string $privateKey;
+    protected bool $testMode;
 
     public function __construct()
     {
         $this->siteCode = Setting::get('ozow_site_code', 'DENNYEXPR001');
         $this->apiKey = Setting::get('ozow_api_key', '');
         $this->privateKey = Setting::get('ozow_private_key', '');
+        $this->testMode = true;
+    }
+
+    public static function fromGateway(\App\Models\PaymentGateway $gateway): self
+    {
+        $service = new self;
+        $credential = $gateway->credential;
+
+        if ($credential) {
+            $service->siteCode = $credential->merchant_id ?? $service->siteCode;
+            $service->apiKey = $credential->public_key ?? $service->apiKey;
+            $service->privateKey = $credential->secret_key ?? $service->privateKey;
+        }
+
+        $service->testMode = $gateway->sandbox_mode;
+
+        return $service;
     }
 
     public function getApiUrl(): string
@@ -38,7 +56,7 @@ class OzowService
         $successUrl = route('checkout.success', $order->order_number);
         $cancelUrl = route('checkout.cancel');
         $notifyUrl = route('payment.notify', ['gateway' => 'ozow']);
-        $errorUrl = route('checkout.error', ['order' => $order->order_number]);
+        $errorUrl = route('payment.error', ['order' => $order->order_number]);
 
         $data = [
             'SiteCode' => $this->siteCode,
@@ -52,7 +70,7 @@ class OzowService
                 'FirstName' => explode(' ', $order->billing_name, 2)[0],
                 'LastName' => explode(' ', $order->billing_name, 2)[1] ?? '',
             ],
-            'IsTest' => true,
+            'IsTest' => $this->testMode,
         ];
 
         $hashInput = $this->generateHashInput($data);
@@ -115,7 +133,7 @@ class OzowService
             'ErrorUrl' => $errorUrl,
             'NotifyUrl' => $notifyUrl,
             'HashCheck' => $data['HashCheck'] ?? '',
-            'IsTest' => 'true',
+            'IsTest' => $this->testMode ? 'true' : 'false',
         ];
 
         return $this->getPaymentUrl() . '/?' . http_build_query($params);
@@ -143,5 +161,23 @@ class OzowService
     public function isEnabled(): bool
     {
         return (bool) Setting::get('ozow_enabled', '1');
+    }
+
+    public function configureForGateway(\App\Models\PaymentGateway $gateway): void
+    {
+        $this->testMode = $gateway->sandbox_mode;
+        $credential = $gateway->credential;
+
+        if ($credential) {
+            if ($credential->merchant_id) {
+                $this->siteCode = $credential->merchant_id;
+            }
+            if ($credential->public_key) {
+                $this->apiKey = $credential->public_key;
+            }
+            if ($credential->secret_key) {
+                $this->privateKey = $credential->secret_key;
+            }
+        }
     }
 }

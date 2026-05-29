@@ -18,6 +18,26 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     @stack('styles')
+
+    @php $gaId = App\Models\Setting::get('google_analytics_id', 'G-XXXXXXXXXX'); @endphp
+    @if ($gaId && $gaId !== 'G-XXXXXXXXXX')
+        <script async src="https://www.googletagmanager.com/gtag/js?id={{ $gaId }}"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '{{ $gaId }}');
+        </script>
+    @endif
+
+    @php $gtmId = App\Models\Setting::get('google_tag_manager_id', 'GTM-XXXXXXX'); @endphp
+    @if ($gtmId && $gtmId !== 'GTM-XXXXXXX')
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','{{ $gtmId }}');</script>
+    @endif
 </head>
 <body x-data="{
     cartOpen: false,
@@ -30,6 +50,12 @@
         });
     },
  }" class="font-sans antialiased text-gray-100 bg-dark">
+
+    @php $gtmId = App\Models\Setting::get('google_tag_manager_id', 'GTM-XXXXXXX'); @endphp
+    @if ($gtmId && $gtmId !== 'GTM-XXXXXXX')
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ $gtmId }}"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    @endif
 
     <x-partials.topbar />
     <x-partials.header />

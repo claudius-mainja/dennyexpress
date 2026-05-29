@@ -4,7 +4,6 @@ namespace App\Services;
 
 use App\Enums\OrderStatus;
 use App\Enums\PaymentStatus;
-use App\Models\CartItem;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Support\Str;
@@ -18,8 +17,14 @@ class OrderService
         $this->cartService = $cartService;
     }
 
-    public function createOrderFromCart(array $billingData, array $shippingData, string $paymentMethod, ?float $shippingCost = 0, ?float $discount = 0): Order
-    {
+    public function createOrderFromCart(
+        array $billingData,
+        array $shippingData,
+        string $paymentMethod,
+        ?float $shippingCost = 0,
+        ?float $discount = 0,
+        ?string $shippingProvince = null,
+    ): Order {
         $cart = $this->cartService->getCart();
         $items = $this->cartService->content();
 
@@ -58,6 +63,7 @@ class OrderService
             'shipping_state' => $shippingData['state'] ?? null,
             'shipping_zip' => $shippingData['zip'] ?? null,
             'shipping_country' => $shippingData['country'] ?? 'South Africa',
+            'shipping_province' => $shippingProvince,
             'payment_method' => $paymentMethod,
             'payment_status' => PaymentStatus::PENDING->value,
         ]);
@@ -90,7 +96,11 @@ class OrderService
 
     public function updateOrderStatus(Order $order, OrderStatus $status): void
     {
+        $oldStatus = $order->status;
         $order->update(['status' => $status->value]);
+        $order->refresh();
+
+        app(OrderStatusNotifier::class)->notify($order, $oldStatus);
     }
 
     public function calculateTotals(Order $order): Order

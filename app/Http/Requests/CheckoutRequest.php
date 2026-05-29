@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Services\Payments\PaymentGatewayManager;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CheckoutRequest extends FormRequest
@@ -13,6 +14,8 @@ class CheckoutRequest extends FormRequest
 
     public function rules(): array
     {
+        $enabledSlugs = app(PaymentGatewayManager::class)->getEnabledSlugs();
+
         return [
             'billing_name' => ['required', 'string', 'max:255'],
             'billing_email' => ['required', 'email', 'max:255'],
@@ -33,7 +36,9 @@ class CheckoutRequest extends FormRequest
             'shipping_zip' => ['nullable', 'string', 'max:20'],
             'shipping_country' => ['nullable', 'string', 'max:255'],
 
-            'payment_method' => ['required', 'string', 'in:card,ozow,payjustnow,bank_transfer'],
+            'shipping_province' => ['required', 'string', 'in:Gauteng,Western Cape,KwaZulu-Natal,Eastern Cape,Free State,Limpopo,Mpumalanga,North West,Northern Cape'],
+
+            'payment_method' => ['required', 'string', 'in:' . implode(',', $enabledSlugs)],
             'notes' => ['nullable', 'string', 'max:1000'],
         ];
     }
@@ -48,7 +53,7 @@ class CheckoutRequest extends FormRequest
             'billing_address.required' => 'Please enter your address.',
             'billing_city.required' => 'Please enter your city.',
             'payment_method.required' => 'Please select a payment method.',
-            'payment_method.in' => 'Please select a valid payment method.',
+            'payment_method.in' => 'The selected payment method is not available.',
         ];
     }
 }

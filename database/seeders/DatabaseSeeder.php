@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             SettingSeeder::class,
             FAQSeeder::class,
             PageSeeder::class,
+            PaymentGatewaySeeder::class,
         ]);
     }
 }
