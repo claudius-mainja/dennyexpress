@@ -39,8 +39,9 @@ class CheckoutController extends Controller
 
         $enabledGateways = $this->gatewayManager->getEnabledGateways();
         $provinces = array_keys(config('shipping.provinces', []));
+        $shippingCost = config('shipping.flat_rate', 500.00);
 
-        return view('checkout.index', compact('cart', 'enabledGateways', 'provinces'));
+        return view('checkout.index', compact('cart', 'enabledGateways', 'provinces', 'shippingCost'));
     }
 
     public function store(CheckoutRequest $request)
@@ -65,7 +66,7 @@ class CheckoutController extends Controller
         $shipping = $billing;
 
         $shippingProvince = $request->shipping_province;
-        $shippingCost = config('shipping.provinces.' . $shippingProvince, 250.00);
+        $shippingCost = config('shipping.flat_rate', 500.00);
 
         try {
             $order = $this->orderService->createOrderFromCart(

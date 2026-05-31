@@ -14,25 +14,13 @@
                 Alpine.data('checkoutForm', () => ({
                     payment_method: '{{ old("payment_method", collect($enabledGateways)->keys()->first() ?? "ozow") }}',
                     shipping_province: '{{ old("shipping_province", "") }}',
-                    shippingCost: 0,
+                    shippingCost: {{ $shippingCost }},
                     subtotal: {{ $subtotal }},
                     tax: {{ $tax }},
 
                     get total() {
                         return this.subtotal + this.shippingCost + this.tax;
                     },
-
-                    get shippingRates() {
-                        return @json(config('shipping.provinces'));
-                    },
-
-                    updateShipping() {
-                        this.shippingCost = this.shippingRates[this.shipping_province] || 0;
-                    },
-
-                    init() {
-                        this.updateShipping();
-                    }
                 }));
             });
         </script>
@@ -104,19 +92,19 @@
                             <h2 class="text-lg font-semibold text-gray-900 mb-4">Delivery Address</h2>
                             <div class="space-y-4">
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-1.5">Delivery Province *</label>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1.5">Province *</label>
                                     <select name="shipping_province"
                                             x-model="shipping_province"
-                                            x-on:change="updateShipping()"
                                             required
                                             class="w-full px-4 py-2.5 text-sm bg-white border border-gray-300 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary hover:border-gray-400 transition-all">
                                         <option value="">Select Province</option>
                                         @foreach ($provinces as $province)
                                             <option value="{{ $province }}" @selected(old('shipping_province') === $province)>
-                                                {{ $province }} — R{{ number_format(config('shipping.provinces.' . $province), 2) }}
+                                                {{ $province }}
                                             </option>
                                         @endforeach
                                     </select>
+                                    <p class="text-xs text-gray-400 mt-1">Flat rate shipping — R{{ number_format($shippingCost, 2) }} to all provinces</p>
                                     <x-input-error :messages="$errors->get('shipping_province')" class="mt-1" />
                                 </div>
                                 <div>
@@ -161,46 +149,13 @@
                             <input type="hidden" name="payment_method" x-model="payment_method">
 
                             <div class="space-y-3">
-                                @foreach ($enabledGateways as $slug => $gateway)
+                                @forelse ($enabledGateways as $slug => $gateway)
                                     @php
                                         $label = $gateway['name'] ?? $slug;
                                         $description = $gateway['description'] ?? '';
-                                        $isFirst = $loop->first;
                                     @endphp
 
                                     @switch($slug)
-                                        @case('card')
-                                            <label class="flex items-start gap-3 p-4 rounded-lg border transition-all duration-200 cursor-pointer bg-white"
-                                                   :class="payment_method === 'card' ? 'border-primary ring-1 ring-primary' : 'border-gray-200 hover:border-gray-300'">
-                                                <input type="radio" value="card" class="mt-1 text-primary focus:ring-primary" x-model="payment_method">
-                                                <div class="flex-1">
-                                                    <div class="flex items-center gap-2">
-                                                        <span class="text-sm font-medium text-gray-900">Credit / Debit Card</span>
-                                                        <span class="text-xs px-2 py-0.5 bg-blue-100 text-blue-700 rounded font-medium">Visa • Mastercard</span>
-                                                    </div>
-                                                    <p class="text-xs text-gray-500 mt-1">Pay securely with your credit or debit card</p>
-                                                    <div class="flex items-center gap-3 mt-2">
-                                                        <img src="{{ asset('images/payments/visa.svg') }}" alt="Visa" class="h-5 object-contain opacity-60">
-                                                        <img src="{{ asset('images/payments/mastercard.svg') }}" alt="Mastercard" class="h-5 object-contain opacity-60">
-                                                    </div>
-                                                </div>
-                                            </label>
-                                            @break
-
-                                        @case('payfast')
-                                            <label class="flex items-start gap-3 p-4 rounded-lg border transition-all duration-200 cursor-pointer bg-white"
-                                                   :class="payment_method === 'payfast' ? 'border-primary ring-1 ring-primary' : 'border-gray-200 hover:border-gray-300'">
-                                                <input type="radio" value="payfast" class="mt-1 text-primary focus:ring-primary" x-model="payment_method">
-                                                <div class="flex-1">
-                                                    <div class="flex items-center gap-2">
-                                                        <span class="text-sm font-medium text-gray-900">PayFast</span>
-                                                        <span class="text-xs px-2 py-0.5 bg-green-100 text-green-700 rounded font-medium">PayFast</span>
-                                                    </div>
-                                                    <p class="text-xs text-gray-500 mt-1">{{ $description }}</p>
-                                                </div>
-                                            </label>
-                                            @break
-
                                         @case('ozow')
                                             <label class="flex items-start gap-3 p-4 rounded-lg border transition-all duration-200 cursor-pointer bg-white"
                                                    :class="payment_method === 'ozow' ? 'border-primary ring-1 ring-primary' : 'border-gray-200 hover:border-gray-300'">
@@ -252,38 +207,24 @@
                                             </label>
                                             @break
 
-                                        @case('bank_transfer')
-                                            <label class="flex items-start gap-3 p-4 rounded-lg border transition-all duration-200 cursor-pointer bg-white"
-                                                   :class="payment_method === 'bank_transfer' ? 'border-primary ring-1 ring-primary' : 'border-gray-200 hover:border-gray-300'">
-                                                <input type="radio" value="bank_transfer" class="mt-1 text-primary focus:ring-primary" x-model="payment_method">
-                                                <div class="flex-1">
-                                                    <div class="flex items-center gap-2">
-                                                        <span class="text-sm font-medium text-gray-900">EFT / Bank Transfer</span>
-                                                        <span class="text-xs px-2 py-0.5 bg-purple-100 text-purple-700 rounded font-medium">Manual EFT</span>
-                                                    </div>
-                                                    <p class="text-xs text-gray-500 mt-1">{{ $description }}</p>
-                                                    <div class="flex items-center gap-2 mt-2">
-                                                        <img src="{{ asset('images/payments/eft.svg') }}" alt="EFT" class="h-5 object-contain opacity-60">
-                                                    </div>
-                                                </div>
-                                            </label>
-                                            @break
-
                                         @default
                                             <label class="flex items-start gap-3 p-4 rounded-lg border transition-all duration-200 cursor-pointer bg-white"
                                                    :class="payment_method === '{{ $slug }}' ? 'border-primary ring-1 ring-primary' : 'border-gray-200 hover:border-gray-300'">
                                                 <input type="radio" value="{{ $slug }}" class="mt-1 text-primary focus:ring-primary" x-model="payment_method">
                                                 <div class="flex-1">
-                                                    <div class="flex items-center gap-2">
-                                                        <span class="text-sm font-medium text-gray-900">{{ $label }}</span>
-                                                    </div>
+                                                    <span class="text-sm font-medium text-gray-900">{{ $label }}</span>
                                                     @if ($description)
                                                         <p class="text-xs text-gray-500 mt-1">{{ $description }}</p>
                                                     @endif
                                                 </div>
                                             </label>
                                     @endswitch
-                                @endforeach
+                                @empty
+                                    <div class="text-center py-8 bg-gray-50 rounded-lg">
+                                        <p class="text-sm text-gray-500">No payment methods are currently available.</p>
+                                        <p class="text-xs text-gray-400 mt-1">Please contact us to complete your order.</p>
+                                    </div>
+                                @endforelse
                             </div>
                             <x-input-error :messages="$errors->get('payment_method')" class="mt-3" />
                         </div>
@@ -346,13 +287,8 @@
                                 </div>
                                 <div class="flex items-center justify-between">
                                     <span class="text-gray-500">Shipping</span>
-                                    <span class="font-medium" :class="shippingCost > 0 ? 'text-gray-900' : 'text-green-600'">
-                                        <template x-if="shippingCost > 0">
-                                            <span x-text="'R' + shippingCost.toFixed(2)"></span>
-                                        </template>
-                                        <template x-if="!shippingCost">
-                                            <span>Select province</span>
-                                        </template>
+                                    <span class="font-medium text-gray-900">
+                                        R{{ number_format($shippingCost, 2) }}
                                     </span>
                                 </div>
                                 <div class="flex items-center justify-between">
@@ -369,9 +305,7 @@
                             </div>
 
                             <div class="flex items-center justify-center gap-3 pt-2 border-t border-gray-200 flex-wrap">
-                                <img src="{{ asset('images/payments/visa.svg') }}" alt="Visa" class="h-6 object-contain">
-                                <img src="{{ asset('images/payments/ozow.svg') }}" alt="Ozow" class="h-6 object-contain">
-                                <img src="{{ asset('images/payments/eft.svg') }}" alt="EFT" class="h-6 object-contain">
+                                <img src="{{ asset('images/payments/ozow.svg') }}" alt="Ozow" class="h-6 object-contain opacity-60">
                             </div>
                         </div>
                     </div>
